@@ -562,7 +562,7 @@ nav.scrolled {
 
 .logos-track {
     display: flex;
-    gap: 0px;
+    gap: 50px;
     align-items: center;
     animation: logos-scroll 35s linear infinite;
     width: max-content;
