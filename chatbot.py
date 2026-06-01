@@ -12,6 +12,86 @@ except ImportError:
 
 RESPONSE_DB = [
     {
+        "keywords": ["orçamento", "orcamento", "preço", "preco", "valor", "custo"],
+        "responses": [
+            "Para orçamento, eu posso te ajudar a definir escopo, prazo e tecnologias. Conte-me: qual tipo de site ou sistema você deseja?",
+            "Posso montar uma proposta personalizada para você. Qual serviço você está pensando em contratar?",
+            "Vamos conversar sobre prazo, investimento e funcionalidades. Me diga: será um site, sistema ou automação?",
+        ],
+    },
+    {
+        "keywords": ["site", "landing", "loja", "e-commerce", "página", "pagina"],
+        "responses": [
+            "Se você quer um site, posso sugerir um design responsivo e otimizado para conversão. Você prefere uma landing page, portfólio ou loja online?",
+            "Criamos sites modernos com foco em experiência do usuário e desempenho. Precisa de um site institucional ou loja virtual?",
+            "Um site bem construído ajuda a vender mais e gerar confiança. Quer que eu explique como funcionaria o processo?",
+        ],
+    },
+    {
+        "keywords": ["automaçã", "automação", "automacao", "workflow", "processo", "integração", "integracao"],
+        "responses": [
+            "Automação reduz trabalho manual e agiliza processos. Você quer integrar ferramentas, enviar relatórios ou automatizar vendas?",
+            "Podemos criar rotinas automáticas para gerenciar leads, estoque ou atendimento. O que você deseja automatizar?",
+        ],
+    },
+    {
+        "keywords": ["contato", "atendimento", "ajuda", "suporte"],
+        "responses": [
+            "Posso te orientar sobre nosso processo: primeiro entendemos a ideia, depois criamos o projeto e entregamos com testes e deploy. Quer saber como começamos um novo projeto?",
+            "Estamos disponíveis para conversar sobre o seu projeto e tirar dúvidas. Prefere que eu explique como funciona o primeiro atendimento?",
+        ],
+    },
+    {
+        "keywords": ["prazo", "tempo", "quando", "semana", "meses"],
+        "responses": [
+            "O prazo depende do escopo, mas pequenos projetos costumam ficar prontos em poucas semanas. Quer que eu estime um prazo para a sua ideia?",
+            "Normalmente entregamos sites simples em até 3 semanas e sistemas em até 6 semanas, dependendo da complexidade. Qual é a sua necessidade?",
+        ],
+    },
+    {
+        "keywords": ["seo", "busca", "google", "rank", "aumentar"],
+        "responses": [
+            "Trabalhamos SEO técnico e de conteúdo para que seu site apareça melhor no Google. Quer saber como otimizar suas páginas?",
+            "SEO é parte do desenvolvimento. Posso te explicar como deixamos seu site rápido e fácil de encontrar na pesquisa.",
+        ],
+    },
+    {
+        "keywords": ["portfolio", "portfólio", "projetos", "trabalhos", "cases"],
+        "responses": [
+            "Temos experiência em sites, sistemas e automações. Você quer ver exemplos de projetos parecidos com o seu?",
+            "Posso te contar sobre projetos anteriores que ajudaram empresas a crescer online. Qual tipo de solução você mais gosta?",
+        ],
+    },
+    {
+        "keywords": ["design", "visual", "ux", "ui", "experiência", "experiencia"],
+        "responses": [
+            "Criamos layouts limpos, modernos e fáceis de usar. Deseja um design mais corporativo ou algo mais criativo?",
+            "A experiência do usuário é prioridade. Posso adaptar o visual para sua marca e público-alvo.",
+        ],
+    },
+    {
+        "keywords": ["equipe", "quem", "empresa", "noven"],
+        "responses": [
+            "Somos a Noven Labs: desenvolvemos sites, sistemas e automações para empresas que querem crescer com tecnologia. Quer saber mais sobre nossa forma de trabalho?",
+            "Nossa equipe é focada em entrega ágil e qualidade. Posso te falar sobre o processo de desenvolvimento e comunicação?",
+        ],
+    },
+    {
+        "keywords": ["olá", "ola", "oi", "bom", "boa", "salve"],
+        "responses": [
+            "Olá! Em que posso ajudar você hoje?",
+            "Oi! Como posso te ajudar com seu projeto?",
+            "Olá! Quer saber sobre orçamentos, sites ou automações?",
+        ],
+    },
+    {
+        "keywords": ["obrigado", "obrigada", "vlw", "legal", "show"],
+        "responses": [
+            "Que bom que gostou! Se quiser, posso esclarecer mais alguma dúvida.",
+            "Fico feliz em ajudar! Tem mais alguma pergunta sobre seu projeto?",
+        ],
+    },
+    {
     "keywords": [
         "contato", "telefone", "numero", "número", "whatsapp",
         "zap", "falar", "conversar", "atendente", "atendimento",
