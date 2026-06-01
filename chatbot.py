@@ -19,6 +19,8 @@ RESPONSE_DB = [
             "Vamos conversar sobre prazo, investimento e funcionalidades. Me diga: será um site, sistema ou automação?",
         ],
     },
+    
+    
     {
         "keywords": ["site", "landing", "loja", "e-commerce", "página", "pagina"],
         "responses": [
