@@ -12,85 +12,85 @@ except ImportError:
 
 RESPONSE_DB = [
     {
-        "keywords": ["orçamento", "orcamento", "preço", "preco", "valor", "custo"],
-        "responses": [
-            "Para orçamento, eu posso te ajudar a definir escopo, prazo e tecnologias. Conte-me: qual tipo de site ou sistema você deseja?",
-            "Posso montar uma proposta personalizada para você. Qual serviço você está pensando em contratar?",
-            "Vamos conversar sobre prazo, investimento e funcionalidades. Me diga: será um site, sistema ou automação?",
-        ],
-    },
-    {
-        "keywords": ["site", "landing", "loja", "e-commerce", "página", "pagina"],
-        "responses": [
-            "Se você quer um site, posso sugerir um design responsivo e otimizado para conversão. Você prefere uma landing page, portfólio ou loja online?",
-            "Criamos sites modernos com foco em experiência do usuário e desempenho. Precisa de um site institucional ou loja virtual?",
-            "Um site bem construído ajuda a vender mais e gerar confiança. Quer que eu explique como funcionaria o processo?",
-        ],
-    },
-    {
-        "keywords": ["automaçã", "automação", "automacao", "workflow", "processo", "integração", "integracao"],
-        "responses": [
-            "Automação reduz trabalho manual e agiliza processos. Você quer integrar ferramentas, enviar relatórios ou automatizar vendas?",
-            "Podemos criar rotinas automáticas para gerenciar leads, estoque ou atendimento. O que você deseja automatizar?",
-        ],
-    },
-    {
-        "keywords": ["contato", "atendimento", "ajuda", "suporte"],
-        "responses": [
-            "Posso te orientar sobre nosso processo: primeiro entendemos a ideia, depois criamos o projeto e entregamos com testes e deploy. Quer saber como começamos um novo projeto?",
-            "Estamos disponíveis para conversar sobre o seu projeto e tirar dúvidas. Prefere que eu explique como funciona o primeiro atendimento?",
-        ],
-    },
-    {
-        "keywords": ["prazo", "tempo", "quando", "semana", "meses"],
-        "responses": [
-            "O prazo depende do escopo, mas pequenos projetos costumam ficar prontos em poucas semanas. Quer que eu estime um prazo para a sua ideia?",
-            "Normalmente entregamos sites simples em até 3 semanas e sistemas em até 6 semanas, dependendo da complexidade. Qual é a sua necessidade?",
-        ],
-    },
-    {
-        "keywords": ["seo", "busca", "google", "rank", "aumentar"],
-        "responses": [
-            "Trabalhamos SEO técnico e de conteúdo para que seu site apareça melhor no Google. Quer saber como otimizar suas páginas?",
-            "SEO é parte do desenvolvimento. Posso te explicar como deixamos seu site rápido e fácil de encontrar na pesquisa.",
-        ],
-    },
-    {
-        "keywords": ["portfolio", "portfólio", "projetos", "trabalhos", "cases"],
-        "responses": [
-            "Temos experiência em sites, sistemas e automações. Você quer ver exemplos de projetos parecidos com o seu?",
-            "Posso te contar sobre projetos anteriores que ajudaram empresas a crescer online. Qual tipo de solução você mais gosta?",
-        ],
-    },
-    {
-        "keywords": ["design", "visual", "ux", "ui", "experiência", "experiencia"],
-        "responses": [
-            "Criamos layouts limpos, modernos e fáceis de usar. Deseja um design mais corporativo ou algo mais criativo?",
-            "A experiência do usuário é prioridade. Posso adaptar o visual para sua marca e público-alvo.",
-        ],
-    },
-    {
-        "keywords": ["equipe", "quem", "empresa", "noven"],
-        "responses": [
-            "Somos a Noven Labs: desenvolvemos sites, sistemas e automações para empresas que querem crescer com tecnologia. Quer saber mais sobre nossa forma de trabalho?",
-            "Nossa equipe é focada em entrega ágil e qualidade. Posso te falar sobre o processo de desenvolvimento e comunicação?",
-        ],
-    },
-    {
-        "keywords": ["olá", "ola", "oi", "bom", "boa", "salve"],
-        "responses": [
-            "Olá! Em que posso ajudar você hoje?",
-            "Oi! Como posso te ajudar com seu projeto?",
-            "Olá! Quer saber sobre orçamentos, sites ou automações?",
-        ],
-    },
-    {
-        "keywords": ["obrigado", "obrigada", "vlw", "legal", "show"],
-        "responses": [
-            "Que bom que gostou! Se quiser, posso esclarecer mais alguma dúvida.",
-            "Fico feliz em ajudar! Tem mais alguma pergunta sobre seu projeto?",
-        ],
-    },
+    "keywords": [
+        "contato", "telefone", "numero", "número", "whatsapp",
+        "zap", "falar", "conversar", "atendente", "atendimento",
+        "humano", "responsável", "vendedor"
+    ],
+    "responses": [
+        "Você pode falar diretamente com nossa equipe pelo WhatsApp: (85) 99949-2843. Teremos prazer em entender seu projeto e tirar suas dúvidas.",
+        "Quer um atendimento mais rápido? Entre em contato pelo WhatsApp: (85) 99949-2843.",
+        "Para orçamentos, dúvidas ou reuniões, entre em contato conosco pelo WhatsApp: (85) 99949-2843."
+    ],
+},
+{
+    "keywords": [
+        "orçamento", "orcamento", "preço", "preco", "valor",
+        "custo", "quanto custa", "investimento", "quanto fica",
+        "cotação", "cotacao"
+    ],
+    "responses": [
+        "O valor depende do tipo de projeto, funcionalidades e prazo. Podemos montar um orçamento personalizado para sua necessidade.",
+        "Cada projeto é único. Conte um pouco sobre sua ideia para que possamos estimar prazo e investimento.",
+        "Trabalhamos com landing pages, sites institucionais e sistemas personalizados. Qual solução você procura?"
+    ],
+},
+{
+    "keywords": [
+        "site", "landing page", "landing", "pagina", "página",
+        "website", "institucional", "empresa", "negócio"
+    ],
+    "responses": [
+        "Desenvolvemos sites modernos, rápidos e responsivos, focados em transmitir credibilidade e gerar resultados para o seu negócio.",
+        "Podemos criar desde landing pages para captação de clientes até sites institucionais completos para sua empresa.",
+        "Um site profissional aumenta a confiança dos clientes e fortalece sua presença digital. Gostaria de saber mais?"
+    ],
+},
+{
+    "keywords": [
+        "automação", "automacao", "automatizar", "integração",
+        "integracao", "processo", "workflow", "ia",
+        "inteligencia artificial", "chatbot"
+    ],
+    "responses": [
+        "Criamos automações que economizam tempo e reduzem tarefas manuais utilizando integrações e inteligência artificial.",
+        "Podemos automatizar atendimentos, captação de leads, envio de mensagens, relatórios e diversos outros processos.",
+        "A automação ajuda empresas a ganharem produtividade e escalabilidade. O que você gostaria de automatizar?"
+    ],
+},
+{
+    "keywords": [
+        "portfolio", "portfólio", "projetos", "trabalhos",
+        "cases", "exemplos", "clientes"
+    ],
+    "responses": [
+        "Temos experiência no desenvolvimento de sites, landing pages, automações e soluções personalizadas para diferentes segmentos.",
+        "Podemos apresentar exemplos de projetos e soluções semelhantes ao que você procura.",
+        "Cada projeto é desenvolvido de acordo com as necessidades do cliente e os objetivos do negócio."
+    ],
+},
+{
+    "keywords": [
+        "prazo", "tempo", "demora", "entrega",
+        "quando", "urgente", "rápido"
+    ],
+    "responses": [
+        "O prazo varia conforme a complexidade do projeto, mas buscamos sempre entregar com rapidez e qualidade.",
+        "Landing pages geralmente possuem um prazo menor, enquanto sistemas personalizados exigem uma análise mais detalhada.",
+        "Informe o tipo de projeto desejado e poderemos fornecer uma estimativa de prazo."
+    ],
+},
+{
+    "keywords": [
+        "empresa", "noven", "noven labs",
+        "quem são", "quem sao", "sobre", "vocês", "voces"
+    ],
+    "responses": [
+        "A Noven Labs é uma empresa especializada em desenvolvimento web, landing pages, sistemas personalizados, automações e soluções digitais.",
+        "Nosso objetivo é ajudar empresas e profissionais a crescerem através da tecnologia e de uma presença digital profissional.",
+        "Trabalhamos com foco em qualidade, agilidade e soluções modernas para negócios de todos os portes."
+    ],
+}
 ]
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
