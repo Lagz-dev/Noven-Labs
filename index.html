@@ -16,6 +16,152 @@
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        #chat-toggle {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 550;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: #2563EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 40px rgba(37,99,235,0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #chat-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 16px 48px rgba(37,99,235,0.5);
+        }
+        #chat-card {
+            position: fixed;
+            bottom: 92px;
+            right: 28px;
+            z-index: 560;
+            width: min(360px, calc(100vw - 40px));
+            max-height: 520px;
+            background: rgba(10, 10, 10, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+        }
+        #chat-card.open {
+            display: flex;
+        }
+        #chat-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        #chat-card-header .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        #chat-card-header .chat-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.05);
+        }
+        #chat-card-header h3 {
+            margin: 0;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            color: #fff;
+        }
+        #chat-card-header .chat-header-subtitle {
+            display: block;
+            font-size: 0.75rem;
+            color: rgba(229, 231, 235, 0.68);
+            margin-top: 2px;
+        }
+        #chat-card-header button {
+            border: none;
+            background: transparent;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+        #chat-card-messages {
+            padding: 16px 18px;
+            overflow-y: auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .chat-message {
+            max-width: 100%;
+            display: inline-flex;
+            padding: 12px 14px;
+            border-radius: 18px;
+            line-height: 1.5;
+            font-size: 0.92rem;
+            word-break: break-word;
+        }
+        .chat-message.user {
+            align-self: flex-end;
+            background: rgba(37, 99, 235, 0.15);
+            color: #fff;
+        }
+        .chat-message.bot {
+            align-self: flex-start;
+            background: rgba(255, 255, 255, 0.08);
+            color: #E5E7EB;
+        }
+        #chat-card-form {
+            display: flex;
+            gap: 10px;
+            padding: 14px 18px 18px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        #chat-input {
+            flex: 1;
+            min-width: 0;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.04);
+            color: #fff;
+            padding: 12px 14px;
+            outline: none;
+        }
+        #chat-input::placeholder {
+            color: rgba(255,255,255,0.55);
+        }
+        #chat-send {
+            border: none;
+            border-radius: 999px;
+            background: #2563EB;
+            color: #fff;
+            padding: 0 16px;
+            cursor: pointer;
+            min-width: 56px;
+            font-weight: 600;
+        }
+        #chat-card-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        #chat-card-messages::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.16);
+            border-radius: 999px;
+        }
+    </style>
     <link rel="icon" type="image/x-icon" href="./IMG/logoofcvv.ico">
 </head>
 
@@ -162,13 +308,7 @@
                     <div class="svc-title">Desenvolvimento Web</div>
                     <div class="svc-desc">Sites profissionais, responsivos e totalmente otimizados para performance e
                         SEO.</div>
-                    <div class="svc-arrow">
-                        Saiba mais
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                        </svg>
-                    </div>
+                    
                 </div>
                 <div class="service-card">
                     <div class="svc-icon">
@@ -179,13 +319,7 @@
                     <div class="svc-title">Landing Pages</div>
                     <div class="svc-desc">Páginas estratégicas focadas em conversão, geração de leads e aumento de
                         vendas.</div>
-                    <div class="svc-arrow">
-                        Saiba mais
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                        </svg>
-                    </div>
+                    
                 </div>
                 <div class="service-card">
                     <div class="svc-icon">
@@ -197,13 +331,7 @@
                     <div class="svc-title">Sistemas Personalizados</div>
                     <div class="svc-desc">Soluções desenvolvidas sob medida para a realidade e os processos do seu
                         negócio.</div>
-                    <div class="svc-arrow">
-                        Saiba mais
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                        </svg>
-                    </div>
+                    
                 </div>
                 <div class="service-card">
                     <div class="svc-icon">
@@ -214,13 +342,7 @@
                     <div class="svc-title">Automações</div>
                     <div class="svc-desc">Automatize tarefas repetitivas e integre sistemas para ganhar tempo e reduzir
                         erros.</div>
-                    <div class="svc-arrow">
-                        Saiba mais
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                        </svg>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -653,7 +775,7 @@
                     <p class="footer-tagline">Construindo soluções digitais que impulsionam negócios. Tecnologia com
                         propósito.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Instagram">
+                        <a href="https://www.instagram.com/labsnoven/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
@@ -688,7 +810,6 @@
                     <div class="footer-col-title">Empresa</div>
                     <div class="footer-links">
                         <a href="#sobre">Sobre nós</a>
-                        <a href="#portfolio">Portfólio</a>
                         <a href="#processo">Como trabalhamos</a>
                         <a href="#depoimentos">Depoimentos</a>
                     </div>
@@ -700,7 +821,7 @@
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                             <polyline points="22,6 12,13 2,6" />
                         </svg>
-                        <a href="mailto:contato@novenlabs.com.br">contato@novenlabs.com.br</a>
+                        <a href="mailto:contato.novenlabs@gmail.com">contato.novenlabs@gmail.com</a>
                     </div>
                     <div class="footer-contact-item">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -716,7 +837,7 @@
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                             <circle cx="12" cy="10" r="3" />
                         </svg>
-                        <span>Fortaleza, Ceará — Brasil</span>
+                        <span>Beberibe, Ceará — Brasil</span>
                     </div>
                 </div>
             </div>
@@ -727,22 +848,32 @@
         </div>
     </footer>
 
-    <!-- ─── FLOATING WhatsApp ─────────────────────────────────────────── -->
-    <a href="https://wa.me/558585999492843?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
-        target="_blank" id="wpp-float" style="
-  position:fixed; bottom:28px; right:28px; z-index:500;
-  width:54px; height:54px; border-radius:50%;
-  background:#25D366; display:flex; align-items:center; justify-content:center;
-  box-shadow: 0 8px 32px rgba(37,211,102,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-decoration:none;
-" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 12px 40px rgba(37,211,102,0.6)'"
-        onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 8px 32px rgba(37,211,102,0.4)'">
+    <button id="chat-toggle" aria-label="Abrir chat">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
             <path
                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 1.5C6.212 1.5 1.5 6.179 1.5 11.977c0 1.879.499 3.641 1.37 5.163L1.5 22.5l5.544-1.342A10.518 10.518 0 0012.05 22.5c5.838 0 10.55-4.679 10.55-10.523C22.6 6.179 17.888 1.5 12.05 1.5z" />
         </svg>
-    </a>
+    </button>
+
+    <div id="chat-card" aria-live="polite" role="dialog" aria-label="Chatbot Noven Labs">
+        <div id="chat-card-header">
+            <div class="chat-header-info">
+                <img src="IMG/logo.png" alt="Logo Noven Labs" class="chat-avatar" />
+                <div>
+                    <h3>Chat Noven Labs</h3>
+                    <span class="chat-header-subtitle">Atendimento virtual</span>
+                </div>
+            </div>
+            <button id="chat-close" aria-label="Fechar chat">×</button>
+        </div>
+        <div id="chat-card-messages">
+            <div class="chat-message bot">Olá! Eu sou o assistente da Noven Labs. Como posso ajudar você hoje?</div>
+        </div>
+        <form id="chat-card-form">
+            <input id="chat-input" type="text" placeholder="Escreva sua mensagem..." autocomplete="off" />
+            <button id="chat-send" type="submit">Enviar</button>
+        </form>
+    </div>
 
     <!-- ─── JS ────────────────────────────────────────────────────────── -->
     <script>
@@ -799,6 +930,111 @@
             if (bg && scrolled < window.innerHeight) {
                 bg.style.transform = `translateX(-50%) translateY(${scrolled * 0.15}px)`;
             }
+        });
+
+        // CHATBOT CARD
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatCard = document.getElementById('chat-card');
+        const chatClose = document.getElementById('chat-close');
+        const chatForm = document.getElementById('chat-card-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-card-messages');
+
+        const BACKEND_URL = window.location.origin.includes(':5000')
+            ? '/chat'
+            : 'http://127.0.0.1:5000/chat';
+
+        const LOCAL_FALLBACK_RESPONSES = [
+            'O servidor de chat não está ativo no momento. Inicie o backend com python server.py e tente novamente.',
+            'Estou offline agora, mas logo o chat estará disponível. Enquanto isso, posso responder com informações básicas.',
+            'Não foi possível conectar ao servidor. Você pode iniciar o backend em http://127.0.0.1:5000 para usar o chat completo.',
+        ];
+
+        const getLocalChatResponse = (message) => {
+            const prompt = message.toLowerCase();
+
+            if (/(orcamento|orçamento|preço|preco|valor|custo)/.test(prompt)) {
+                return 'Para orçamento, posso te ajudar a montar uma proposta. Qual tipo de site ou sistema você deseja?';
+            }
+            if (/(site|landing|loja|e-commerce|pagina|página)/.test(prompt)) {
+                return 'Se você quer um site, posso sugerir um design responsivo e otimizado para conversão. Você prefere uma landing page, portfólio ou loja online?';
+            }
+            if (/(automação|automacao|workflow|processo|integração|integracao)/.test(prompt)) {
+                return 'Automação reduz trabalho manual e agiliza processos. O que você deseja automatizar?';
+            }
+            if (/(contato|atendimento|ajuda|suporte)/.test(prompt)) {
+                return 'Posso te orientar sobre nosso processo: primeiro entendemos a ideia, depois criamos o projeto e entregamos com testes e deploy.';
+            }
+            if (/(prazo|tempo|quando|semana|meses)/.test(prompt)) {
+                return 'O prazo depende do escopo, mas pequenos projetos costumam ficar prontos em poucas semanas. Quer que eu estime o prazo para a sua ideia?';
+            }
+
+            return LOCAL_FALLBACK_RESPONSES[Math.floor(Math.random() * LOCAL_FALLBACK_RESPONSES.length)];
+        };
+
+        const addMessage = (content, sender) => {
+            const message = document.createElement('div');
+            message.className = `chat-message ${sender}`;
+            message.textContent = content;
+            chatMessages.appendChild(message);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return message;
+        };
+
+        const openChat = () => {
+            chatCard.classList.add('open');
+            setTimeout(() => chatInput.focus(), 100);
+        };
+
+        const closeChat = () => chatCard.classList.remove('open');
+
+        const requestChatbot = async (message) => {
+            try {
+                const response = await fetch(BACKEND_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Falha na conexão com o servidor.');
+                }
+
+                const data = await response.json();
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                return data.reply || 'Desculpe, não consegui responder agora.';
+            } catch (error) {
+                console.warn('Chat backend não disponível:', error);
+                return getLocalChatResponse(message);
+            }
+        };
+
+        chatToggle.addEventListener('click', () => {
+            if (chatCard.classList.contains('open')) {
+                closeChat();
+            } else {
+                openChat();
+            }
+        });
+
+        chatClose.addEventListener('click', closeChat);
+
+        chatForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            addMessage(text, 'user');
+            chatInput.value = '';
+
+            const loading = addMessage('Pensando...', 'bot');
+            const reply = await requestChatbot(text);
+            loading.textContent = reply;
         });
     </script>
 </body>
