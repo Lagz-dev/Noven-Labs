@@ -2,1056 +2,2180 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noven Labs — Sites que Geram Clientes de Verdade</title>
+    <link rel="icon" href="./IMG/logoofcvv.ico" />
     <meta name="description"
-        content="Noven Labs — Desenvolvemos sites, sistemas e automações modernas para empresas que desejam crescer com tecnologia.">
-    <meta property="og:title" content="Noven Labs — Soluções Digitais">
-    <meta property="og:description" content="Construindo soluções digitais que impulsionam negócios.">
-    <meta property="og:type" content="website">
-    <title>Noven Labs — Soluções Digitais</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        content="Seu concorrente já está recebendo clientes pela internet enquanto você não aparece. A Noven Labs cria sites e landing pages que convertem visitantes em clientes reais." />
+    <meta name="keywords"
+        content="criação de sites, landing page, desenvolvimento web, site profissional, presença digital, Ceará" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#4585fc',
+                        'brand-dim': '#003FCC',
+                        dark: '#080B10',
+                        'dark-2': '#0D111A',
+                        'dark-3': '#131928',
+                        'dark-4': '#1A2235',
+                        muted: '#8A96A8',
+                        subtle: '#3D4A60',
+                    },
+                    fontFamily: {
+                        display: ['Syne', 'sans-serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
     <style>
-        #chat-toggle {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            z-index: 550;
-            width: 54px;
-            height: 54px;
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #080B10;
+            color: #E8ECF2;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #080B10;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4585fc44;
+            border-radius: 4px;
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            transition-delay: 0.4s;
+        }
+
+        .stagger-5 {
+            transition-delay: 0.5s;
+        }
+
+        /* Noise texture overlay */
+        .noise::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 150px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Hero glow */
+        .hero-glow {
+            position: absolute;
+            width: 700px;
+            height: 700px;
             border-radius: 50%;
-            background: #2563EB;
+            background: radial-gradient(ellipse, #4585fc18 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            pointer-events: none;
+            filter: blur(60px);
+        }
+
+        .hero-glow-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse, #2563EB14 0%, transparent 70%);
+            bottom: -100px;
+            left: -150px;
+            pointer-events: none;
+            filter: blur(80px);
+        }
+
+        /* Brand accent */
+        .accent {
+            color: #4585fc;
+        }
+
+        .accent-bg {
+            
+        }
+
+        /* Cards */
+        .card-glass {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s, background 0.3s, transform 0.3s;
+        }
+
+        .card-glass:hover {
+            border-color: rgba(1, 90, 255, 0.2);
+            background: rgba(1, 90, 255, 0.04);
+            transform: translateY(-3px);
+        }
+
+        /* CTA button */
+        .btn-primary {
+            background: #4585fc;
+            color: #080B10;
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            letter-spacing: 0.01em;
+            border-radius: 8px;
+            padding: 14px 28px;
+            font-size: 15px;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            box-shadow: 0 0 0 0 rgba(16, 233, 140, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #003FCC;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(1, 90, 255, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #E8ECF2;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 13px 26px;
+            font-size: 15px;
+            transition: border-color 0.2s, background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(1, 90, 255, 0.4);
+            background: rgba(1, 90, 255, 0.05);
+        }
+
+        /* Number badge */
+        .step-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            color: #4585fc;
+            background: rgba(16, 233, 140, 0.1);
+            border: 1px solid rgba(16, 233, 140, 0.2);
+            border-radius: 6px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 12px 40px rgba(37,99,235,0.6);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            color: white;
-            border: none;
-            cursor: pointer;
         }
-        #chat-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 16px 48px rgba(37,99,235,0.5);
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06) 50%, transparent);
         }
-        #chat-card {
-            position: fixed;
-            bottom: 92px;
-            right: 28px;
-            z-index: 560;
-            width: min(360px, calc(100vw - 40px));
-            max-height: 520px;
-            background: rgba(10, 10, 10, 0.98);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
-            overflow: hidden;
-            display: none;
-            flex-direction: column;
+
+        /* Nav */
+        #navbar {
+            transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
         }
-        #chat-card.open {
-            display: flex;
+
+        #navbar.scrolled {
+            background: rgba(8, 11, 16, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
         }
-        #chat-card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 18px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-        #chat-card-header .chat-header-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        #chat-card-header .chat-avatar {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(255,255,255,0.05);
-        }
-        #chat-card-header h3 {
-            margin: 0;
-            font-size: 0.95rem;
-            letter-spacing: 0.02em;
-            color: #fff;
-        }
-        #chat-card-header .chat-header-subtitle {
-            display: block;
-            font-size: 0.75rem;
-            color: rgba(229, 231, 235, 0.68);
-            margin-top: 2px;
-        }
-        #chat-card-header button {
-            border: none;
-            background: transparent;
-            color: var(--gray);
-            cursor: pointer;
-            font-size: 1.1rem;
+
+        /* Stat counter */
+        .stat-num {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: #4585fc;
             line-height: 1;
         }
-        #chat-card-messages {
-            padding: 16px 18px;
-            overflow-y: auto;
+
+        /* Quote block */
+        .quote-card {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 28px;
+            position: relative;
+        }
+
+        .quote-card::before {
+            content: '"';
+            font-family: 'Syne', sans-serif;
+            font-size: 80px;
+            color: #4585fc;
+            line-height: 1;
+            position: absolute;
+            top: 8px;
+            left: 24px;
+            opacity: 0.3;
+        }
+
+        /* Comparison table */
+        .compare-bad {
+            color: #EF4444;
+        }
+
+        .compare-good {
+            color: #4585fc;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 400px;
+            padding-bottom: 20px;
+        }
+
+        .faq-arrow {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #4585fc 0%, #4A9EFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Tag pill */
+        .tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #4585fc;
+            background: rgba(1, 90, 255, 0.08);
+            border: 1px solid rgba(1, 90, 255, 0.15);
+            border-radius: 100px;
+            padding: 5px 14px;
+            display: inline-block;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* Input */
+        .form-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 13px 16px;
+            color: #E8ECF2;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: rgba(1, 90, 255, 0.4);
+        }
+
+        .form-input::placeholder {
+            color: #4A5568;
+        }
+
+        /* Mobile menu */
+        #mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Toast */
+        #toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            background: #4585fc;
+            color: #080B10;
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            padding: 14px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            box-shadow: 0 10px 40px rgba(1, 90, 255, 0.3);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+        }
+
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Marquee */
+        .marquee-track {
+            display: flex;
+            animation: marquee 30s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Section spacing */
+        section {
+            padding: 100px 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 0;
+            }
+        }
+
+        /* Hero headline */
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Decorative line */
+        .deco-line {
+            width: 40px;
+            height: 3px;
+            background: #4585fc;
+            border-radius: 2px;
+        }
+
+        /* AI chat */
+        .ai-chat {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 80;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 14px;
+        }
+
+        .ai-chat-panel {
+            width: min(380px, calc(100vw - 28px));
+            height: min(590px, calc(100vh - 110px));
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            background: rgba(13, 17, 26, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(69, 133, 252, 0.08);
+            backdrop-filter: blur(18px);
+            transform: translateY(16px);
+            opacity: 0;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .ai-chat.open .ai-chat-panel {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .ai-chat-header {
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            background: linear-gradient(135deg, rgba(69, 133, 252, 0.18), rgba(8, 11, 16, 0));
+        }
+
+        .ai-chat-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #080B10;
+            background: rgba(69, 133, 252, 0.12);
+            border: 1px solid rgba(69, 133, 252, 0.24);
+            box-shadow: 0 12px 30px rgba(69, 133, 252, 0.25);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .ai-chat-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 6px;
+        }
+
+        .ai-chat-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            display: inline-block;
+            background: #22c55e;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
+        }
+
+        .ai-chat-close {
+            margin-left: auto;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8A96A8;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .ai-chat-close:hover {
+            color: #fff;
+            border-color: rgba(69, 133, 252, 0.35);
+            background: rgba(69, 133, 252, 0.08);
+        }
+
+        .ai-chat-messages {
             flex: 1;
+            overflow-y: auto;
+            padding: 18px;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-        .chat-message {
-            max-width: 100%;
-            display: inline-flex;
+
+        .ai-message {
+            max-width: 86%;
             padding: 12px 14px;
-            border-radius: 18px;
+            border-radius: 14px;
+            font-size: 14px;
             line-height: 1.5;
-            font-size: 0.92rem;
-            word-break: break-word;
+            animation: chatMessageIn 0.25s ease both;
         }
-        .chat-message.user {
-            align-self: flex-end;
-            background: rgba(37, 99, 235, 0.15);
-            color: #fff;
-        }
-        .chat-message.bot {
+
+        .ai-message.bot {
             align-self: flex-start;
-            background: rgba(255, 255, 255, 0.08);
-            color: #E5E7EB;
+            color: #D8DFEA;
+            background: rgba(255, 255, 255, 0.055);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom-left-radius: 5px;
         }
-        #chat-card-form {
-            display: flex;
-            gap: 10px;
-            padding: 14px 18px 18px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-        #chat-input {
-            flex: 1;
-            min-width: 0;
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 999px;
-            background: rgba(255,255,255,0.04);
-            color: #fff;
-            padding: 12px 14px;
-            outline: none;
-        }
-        #chat-input::placeholder {
-            color: rgba(255,255,255,0.55);
-        }
-        #chat-send {
-            border: none;
-            border-radius: 999px;
-            background: #2563EB;
-            color: #fff;
-            padding: 0 16px;
-            cursor: pointer;
-            min-width: 56px;
+
+        .ai-message.user {
+            align-self: flex-end;
+            color: #080B10;
+            background: #4585fc;
             font-weight: 600;
+            border-bottom-right-radius: 5px;
         }
-        #chat-card-messages::-webkit-scrollbar {
-            width: 6px;
+
+        .ai-quick-actions {
+            padding: 0 18px 14px;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
         }
-        #chat-card-messages::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.16);
+
+        .ai-quick-actions button {
+            flex: 0 0 auto;
+            color: #E8ECF2;
+            background: rgba(69, 133, 252, 0.08);
+            border: 1px solid rgba(69, 133, 252, 0.18);
             border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 12px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .ai-quick-actions button:hover {
+            background: rgba(69, 133, 252, 0.16);
+            border-color: rgba(69, 133, 252, 0.4);
+        }
+
+        .ai-chat-form {
+            padding: 14px;
+            display: flex;
+            gap: 9px;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            background: rgba(8, 11, 16, 0.72);
+        }
+
+        .ai-chat-input {
+            min-width: 0;
+            flex: 1;
+            height: 44px;
+            color: #E8ECF2;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 0 13px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .ai-chat-input:focus {
+            border-color: rgba(69, 133, 252, 0.48);
+        }
+
+        .ai-chat-send,
+        .ai-chat-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        .ai-chat-send {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            color: #080B10;
+            background: #4585fc;
+            flex-shrink: 0;
+        }
+
+        .ai-chat-send:hover,
+        .ai-chat-toggle:hover {
+            background: #003FCC;
+            transform: translateY(-2px);
+        }
+
+        .ai-chat-toggle {
+            min-width: 62px;
+            height: 62px;
+            border-radius: 18px;
+            color: #080B10;
+            background: #4585fc;
+            box-shadow: 0 16px 45px rgba(69, 133, 252, 0.32);
+            position: relative;
+        }
+
+        .ai-chat-toggle::before {
+            content: '';
+            position: absolute;
+            top: 9px;
+            right: 9px;
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: #22c55e;
+            border: 2px solid #4585fc;
+        }
+
+        .ai-chat-bubble-label {
+            position: absolute;
+            right: 72px;
+            white-space: nowrap;
+            color: #E8ECF2;
+            background: rgba(13, 17, 26, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            padding: 9px 13px;
+            font-size: 13px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.32);
+            pointer-events: none;
+        }
+
+        .ai-chat.open .ai-chat-bubble-label {
+            display: none;
+        }
+
+        @keyframes chatMessageIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .ai-chat {
+                right: 14px;
+                bottom: 14px;
+            }
+
+            .ai-chat-panel {
+                height: min(560px, calc(100vh - 96px));
+                border-radius: 16px;
+            }
+
+            .ai-chat-bubble-label {
+                display: none;
+            }
         }
     </style>
-    <link rel="icon" type="image/x-icon" href="./IMG/logoofcvv.ico">
 </head>
 
 <body>
 
-    <!-- ─── NAV ─────────────────────────────────────────────────────── -->
-    <nav id="navbar">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">
-                <div class="logo-mark">
-                    <img src="../IMG/logo.png" alt="Noven Labs logo" />
+    <!-- ======= TOAST ======= -->
+    <div id="toast">✓ Mensagem enviada! Te respondo em breve.</div>
+
+    <!-- ======= NAV ======= -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4">
+        <div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5">
+                <div class=" accent-bg">
+                    <img src="./IMG/logoofcvv.ico" alt="Logo" class="w-4 h-4">
                 </div>
-                <span class="logo-text">Noven Labs</span>
+                <span
+                    style="font-family:'Syne',sans-serif; font-weight:800; font-size:17px; letter-spacing:-0.02em;">Noven<span
+                        class="accent">Labs</span></span>
             </a>
-            <ul class="nav-links">
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#portfolio">Projetos</a></li hidden> <!-- EM DESENVOLVIMENTO   -->
-                <li><a href="#processo">Processo</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-            <div class="nav-cta">
-                <a href="#cta" class="btn btn-primary">Solicitar orçamento</a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#problema" class="text-sm text-muted hover:text-white transition-colors">O Problema</a>
+                <a href="#solucao" class="text-sm text-muted hover:text-white transition-colors">Solução</a>
+                <a href="#resultados" class="text-sm text-muted hover:text-white transition-colors">Resultados</a>
+                <a href="#processo" class="text-sm text-muted hover:text-white transition-colors">Processo</a>
+                <a href="#faq" class="text-sm text-muted hover:text-white transition-colors">FAQ</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-3">
+                <a href="#contato" class="btn-primary text-sm py-2.5 px-5">Quero meu site →</a>
             </div>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
+
+            <button id="menu-btn" class="md:hidden p-2 text-muted hover:text-white" aria-label="Menu">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <rect x="2" y="5" width="18" height="2" rx="1" fill="currentColor" />
+                    <rect x="2" y="10" width="18" height="2" rx="1" fill="currentColor" />
+                    <rect x="2" y="15" width="18" height="2" rx="1" fill="currentColor" />
+                </svg>
             </button>
-
         </div>
-    </nav>
+    </header>
 
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobile-menu">
-        <a href="#servicos" class="mobile-link">Serviços</a>
-        <a href="#sobre" class="mobile-link">Sobre</a>
-        <a href="#portfolio" class="mobile-link">Projetos</a hidden> <!-- EM DESENVOLVIMENTO   -->
-        <a href="#processo" class="mobile-link">Processo</a>
-        <a href="#contato" class="mobile-link">Contato</a>
-        <a href="#cta" class="btn btn-primary">Solicitar orçamento</a>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 bg-dark-2 border-l border-white/5 z-50 flex flex-col p-8">
+        <div class="flex justify-between items-center mb-10">
+            <span style="font-family:'Syne',sans-serif; font-weight:800;">Noven<span class="accent">Labs</span></span>
+            <button id="close-menu" class="text-muted hover:text-white">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <path d="M4 4l14 14M18 4L4 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-5">
+            <a href="#problema"
+                class="mobile-link text-white/80 text-lg font-medium hover:text-brand transition-colors">O Problema</a>
+            <a href="#solucao"
+                class="mobile-link text-white/80 text-lg font-medium hover:text-brand transition-colors">Solução</a>
+            <a href="#resultados"
+                class="mobile-link text-white/80 text-lg font-medium hover:text-brand transition-colors">Resultados</a>
+            <a href="#processo"
+                class="mobile-link text-white/80 text-lg font-medium hover:text-brand transition-colors">Processo</a>
+            <a href="#faq"
+                class="mobile-link text-white/80 text-lg font-medium hover:text-brand transition-colors">FAQ</a>
+        </nav>
+        <div class="mt-auto">
+            <a href="#contato" class="mobile-link btn-primary w-full justify-center">Quero meu site →</a>
+        </div>
     </div>
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-40 hidden" id="overlay"></div>
 
-    <!-- ─── HERO ─────────────────────────────────────────────────────── -->
-    <section id="hero">
-        <div class="hero-bg">
-            <div class="hero-grid"></div>
-            <div class="hero-glow-1"></div>
-            <div class="hero-glow-2"></div>
+    <!-- ======= HERO ======= -->
+    <section class="relative min-h-screen flex items-center noise overflow-hidden" style="padding-top: 120px;">
+        <div class="hero-glow"></div>
+        <div class="hero-glow-2"></div>
+
+        <!-- Grid pattern -->
+        <div class="absolute inset-0 opacity-[0.025]"
+            style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 50px 50px;">
         </div>
-        <div class="hero-inner">
-            <div class="hero-avatar">
-                <img src="../IMG/logo2.png" alt="Foto de perfil" />
-            </div>
-            <div class="hero-badge">
-                <span class="hero-badge-dot"></span>
-                Startup de Tecnologia · Ceará, Brasil
-            </div>
-            <h1 class="hero-title">
-                <span class="line-wrap">Construindo soluções</span>
-                <span class="line-wrap">digitais que <span class="accent">impulsionam</span></span>
-                <span class="line-wrap">negócios.</span>
-            </h1>
-            <p class="hero-sub">
-                Desenvolvemos sites, sistemas e automações modernas para empresas que desejam crescer com tecnologia de
-                ponta.
-            </p>
-            <div class="hero-actions">
-                <a href="#cta" class="btn btn-primary btn-lg">
-                    Solicitar orçamento
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </a>
-                <a href="#portfolio" class="btn btn-ghost btn-lg">
-                    Ver projetos
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-num">3+</div>
-                    <div class="stat-label">Projetos entregues</div>
+
+        <div class="max-w-6xl mx-auto px-5 w-full relative z-10">
+            <div class="max-w-3xl">
+                <div class="reveal mb-6">
+                    <span class="tag">Sites que geram clientes reais</span>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <div class="stat-num">98%</div>
-                    <div class="stat-label">Satisfação dos clientes</div>
+
+                <h1 class="reveal stagger-1 text-5xl sm:text-6xl md:text-7xl text-white mb-6">
+                    Seu negócio<br />
+                    <span class="gradient-text">não aparece.</span><br />
+                    Seus clientes<br />
+                    somem.
+                </h1>
+
+                <p class="reveal stagger-2 text-lg md:text-xl text-muted leading-relaxed mb-10 max-w-xl">
+                    Enquanto você lê isso, seu concorrente está recebendo clientes pela internet. A Noven Labs cria
+                    sites profissionais que trabalham por você <strong class="text-white">24 horas por dia.</strong>
+                </p>
+
+                <div class="reveal stagger-3 flex flex-wrap gap-4 mb-14">
+                    <a href="#contato" class="btn-primary text-base">
+                        Quero um site que venda
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="#problema" class="btn-secondary text-base">
+                        Ver mais
+                    </a>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <div class="stat-num">3x</div>
-                    <div class="stat-label">Crescimento médio</div>
+
+                <!-- Social proof strip -->
+                <div class="reveal stagger-4 flex flex-wrap items-center gap-5">
+                    <div class="flex -space-x-2">
+                        <!-- Avatars placeholder -->
+                        <div
+                            class="w-9 h-9 rounded-full bg-dark-4 border-2 border-dark flex items-center justify-center text-xs font-bold accent">
+                            A</div>
+                        <div
+                            class="w-9 h-9 rounded-full bg-dark-4 border-2 border-dark flex items-center justify-center text-xs font-bold text-purple-400">
+                            M</div>
+                        <div
+                            class="w-9 h-9 rounded-full bg-dark-4 border-2 border-dark flex items-center justify-center text-xs font-bold text-blue-400">
+                            R</div>
+                        <div
+                            class="w-9 h-9 rounded-full bg-dark-4 border-2 border-dark flex items-center justify-center text-xs font-bold text-orange-400">
+                            C</div>
+                    </div>
+                    <div>
+                        <div class="flex text-yellow-400 text-sm mb-0.5">★★★★★</div>
+                        <p class="text-sm text-muted"><strong class="text-white">+3 negócios</strong> já aumentaram
+                            suas vendas</p>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+            <span class="text-xs text-muted font-medium tracking-widest uppercase">scroll</span>
+            <div class="w-px h-8 bg-gradient-to-b from-muted to-transparent"></div>
         </div>
     </section>
 
-    <!-- ─── LOGOS STRIP ───────────────────────────────────────────────── -->
-    <div class="logos-strip">
-        <p class="logos-label">Tecnologias que utilizamos</p>
-        <div style="overflow:hidden">
-            <div class="logos-track" id="logos-track">
-                <span class="logo-item">Html</span>
-                <span class="logo-item">Css</span>
-                <span class="logo-item">JavaScript</span>
-                <span class="logo-item">Python</span>
-                <span class="logo-item">SQL</span>
-                <span class="logo-item">Vercel</span>
-                <span class="logo-item">Git</span>
-                <span class="logo-item">GitHub</span>
-                <span class="logo-item">API REST</span>
-                <span class="logo-item">SEO</span>
-                <span class="logo-item">Responsivo</span>
-                <span class="logo-item">UI Design</span>
-                <span class="logo-item">UX Design</span>
-                <span class="logo-item">Cloud</span>
-                <span class="logo-item">Performance</span>
-                <span class="logo-item">Automação</span>
-                <span class="logo-item">Landing Pages</span>
-                <span class="logo-item">Web Apps</span>
-                <span class="logo-item">Hospedagem</span>
-                <span class="logo-item">Deploy</span>
-                <span class="logo-item">Integrações</span>
-                <span class="logo-item">IA</span>
+    <!-- ======= MARQUEE ======= -->
+    <div class="py-5 border-y border-white/5 overflow-hidden bg-dark-2">
+        <div class="marquee-track">
+            <div class="flex items-center gap-12 pr-12 text-muted text-sm font-medium">
+                <span>✦ Sites Profissionais</span>
+                <span class="accent">✦ Landing Pages de Alta Conversão</span>
+                <span>✦ Sistemas Web</span>
+                <span class="accent">✦ Presença Digital</span>
+                <span>✦ Vendas 24h/dia</span>
+                <span class="accent">✦ Mobile First</span>
+                <span>✦ SEO Estratégico</span>
+                <span class="accent">✦ Identidade Visual Digital</span>
+                <span>✦ Sites Profissionais</span>
+                <span class="accent">✦ Landing Pages de Alta Conversão</span>
+                <span>✦ Sistemas Web</span>
+                <span class="accent">✦ Presença Digital</span>
+                <span>✦ Vendas 24h/dia</span>
+                <span class="accent">✦ Mobile First</span>
+                <span>✦ SEO Estratégico</span>
+                <span class="accent">✦ Identidade Visual Digital</span>
             </div>
         </div>
     </div>
 
-    <!-- ─── SERVICES ─────────────────────────────────────────────────── -->
-    <section class="section" id="servicos">
-        <div class="container">
-            <div class="services-header reveal">
-                <div class="section-label" style="justify-content:center">Serviços</div>
-                <h2 class="section-title">O que entregamos</h2>
-                <p class="section-sub">Soluções completas em tecnologia para empresas que querem resultados reais.</p>
+    <!-- ======= PROBLEMA ======= -->
+    <section id="problema" class="relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-5">
+
+            <div class="text-center mb-16 reveal">
+                <span class="tag mb-4">O que você está perdendo agora</span>
+                <h2 class="text-4xl md:text-5xl text-white mt-4 mb-5">
+                    A internet não espera.<br />Seus clientes, também não.
+                </h2>
+                <p class="text-lg text-muted max-w-xl mx-auto">
+                    Todo dia sem uma presença digital profissional é dinheiro indo direto para o bolso do seu
+                    concorrente.
+                </p>
             </div>
-            <div class="services-grid reveal">
-                <div class="service-card">
-                    <div class="svc-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                    </div>
-                    <div class="svc-title">Desenvolvimento Web</div>
-                    <div class="svc-desc">Sites profissionais, responsivos e totalmente otimizados para performance e
-                        SEO.</div>
-                    
+
+            <!-- Stats row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+                <div class="card-glass rounded-xl p-6 text-center reveal stagger-1">
+                    <div class="stat-num mb-2">97%</div>
+                    <p class="text-sm text-muted">dos consumidores pesquisam online antes de comprar</p>
                 </div>
-                <div class="service-card">
-                    <div class="svc-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                        </svg>
-                    </div>
-                    <div class="svc-title">Landing Pages</div>
-                    <div class="svc-desc">Páginas estratégicas focadas em conversão, geração de leads e aumento de
-                        vendas.</div>
-                    
+                <div class="card-glass rounded-xl p-6 text-center reveal stagger-2">
+                    <div class="stat-num mb-2">75%</div>
+                    <p class="text-sm text-muted">julgam a credibilidade de um negócio pelo site</p>
                 </div>
-                <div class="service-card">
-                    <div class="svc-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path
-                                d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
-                        </svg>
-                    </div>
-                    <div class="svc-title">Sistemas Personalizados</div>
-                    <div class="svc-desc">Soluções desenvolvidas sob medida para a realidade e os processos do seu
-                        negócio.</div>
-                    
+                <div class="card-glass rounded-xl p-6 text-center reveal stagger-3">
+                    <div class="stat-num mb-2">3s</div>
+                    <p class="text-sm text-muted">é o tempo que um visitante espera antes de sair</p>
                 </div>
-                <div class="service-card">
-                    <div class="svc-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <div class="svc-title">Automações</div>
-                    <div class="svc-desc">Automatize tarefas repetitivas e integre sistemas para ganhar tempo e reduzir
-                        erros.</div>
-                    
+                <div class="card-glass rounded-xl p-6 text-center reveal stagger-4">
+                    <div class="stat-num mb-2">24h</div>
+                    <p class="text-sm text-muted">por dia que seu site pode trabalhar gerando clientes</p>
                 </div>
             </div>
+
+            <!-- Pain points -->
+            <div class="grid md:grid-cols-3 gap-5">
+                <div class="card-glass rounded-2xl p-7 reveal stagger-1">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-5">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="15" y1="9" x2="9" y2="15" />
+                            <line x1="9" y1="9" x2="15" y2="15" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-lg mb-3">Invisível no Google</h3>
+                    <p class="text-muted text-sm leading-relaxed">Quando alguém procura pelo que você faz, aparece seu
+                        concorrente. Você nem existe para esses clientes potenciais.</p>
+                </div>
+                <div class="card-glass rounded-2xl p-7 reveal stagger-2">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-5">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-lg mb-3">Sem autoridade digital</h3>
+                    <p class="text-muted text-sm leading-relaxed">Sem site, você depende do boca a boca. Qualquer
+                        concorrente com um site profissional parece maior, mais sério e mais confiável do que você.</p>
+                </div>
+                <div class="card-glass rounded-2xl p-7 reveal stagger-3">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-5">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-lg mb-3">Fechado fora do horário</h3>
+                    <p class="text-muted text-sm leading-relaxed">Seu negócio fecha às 18h. Mas os clientes procuram à
+                        noite, no fim de semana, no feriado. Sem site, você perde todos esses contatos.</p>
+                </div>
+            </div>
+
+            <!-- Destaque urgência -->
+            <div class="mt-12 rounded-2xl border border-brand/20 bg-brand/5 p-7 md:p-10 reveal">
+                <div class="flex flex-col md:flex-row md:items-center gap-6">
+                    <div class="flex-1">
+                        <p class="text-xl md:text-2xl font-semibold text-white leading-snug">
+                            "Seus clientes estão procurando agora.<br />
+                            A pergunta é: <span class="accent">eles te encontram</span> ou encontram seu concorrente?"
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <a href="#contato" class="btn-primary">Resolver agora →</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- ─── ABOUT ─────────────────────────────────────────────────────── -->
-    <section class="section" id="sobre">
-        <div class="container">
-            <div class="about-visual reveal">
-                <div class="about-card-main">
-                    <div class="about-card-main-inner">
-                        <div class="about-code">
-                            <span class="code-comment">// Noven Labs — nossa filosofia</span><br><br>
-                            <span class="code-keyword">const</span> novenLabs = {<br>
-                            &nbsp;&nbsp;missão: <span class="code-string">"transformar ideias"</span>,<br>
-                            &nbsp;&nbsp;abordagem: <span class="code-string">"design + estratégia"</span>,<br>
-                            &nbsp;&nbsp;resultado: <span class="code-string">"experiências reais"</span>,<br>
-                            &nbsp;&nbsp;<span class="code-func">entregar</span>: () => {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span
-                                class="code-string">"excelência"</span><br>
-                            &nbsp;&nbsp;}<br>
-                            }
-                        </div>
-                        <div>
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ======= REALIDADE ======= -->
+    <section class="relative">
+        <div class="max-w-6xl mx-auto px-5">
+
+            <div class="text-center mb-14 reveal">
+                <span class="tag mb-4">A diferença que faz diferença</span>
+                <h2 class="text-4xl md:text-5xl text-white mt-4 mb-5">
+                    Site amador vs site<br /><span class="gradient-text">que vende de verdade</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5">
+                <!-- Sem site / ruim -->
+                <div class="rounded-2xl border border-red-500/15 bg-red-500/5 p-7 md:p-8 reveal reveal-left">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <h3 class="text-white text-lg">Sem site ou site ruim</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-sm text-muted">
+                            <span class="compare-bad mt-0.5 flex-shrink-0">✗</span>
+                            Não aparece no Google para clientes locais
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-muted">
+                            <span class="compare-bad mt-0.5 flex-shrink-0">✗</span>
+                            Parece menos confiável que concorrentes com site profissional
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-muted">
+                            <span class="compare-bad mt-0.5 flex-shrink-0">✗</span>
+                            Perde clientes toda vez que o negócio está fechado
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-muted">
+                            <span class="compare-bad mt-0.5 flex-shrink-0">✗</span>
+                            Depende 100% do boca a boca e anúncios pagos
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-muted">
+                            <span class="compare-bad mt-0.5 flex-shrink-0">✗</span>
+                            Dificuldade em cobrar preços mais altos (sem credibilidade)
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-muted">
+                            <span class="compare-bad mt-0.5 flex-shrink-0">✗</span>
+                            Sem métricas: não sabe de onde vêm os clientes
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Com site profissional -->
+                <div class="rounded-2xl border border-brand/20 bg-brand/5 p-7 md:p-8 reveal reveal-right">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-3 h-3 rounded-full bg-brand"></div>
+                        <h3 class="text-white text-lg">Com site profissional Noven Labs</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-sm text-white">
+                            <span class="compare-good mt-0.5 flex-shrink-0">✓</span>
+                            Aparece quando clientes buscam pelo seu serviço no Google
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-white">
+                            <span class="compare-good mt-0.5 flex-shrink-0">✓</span>
+                            Transmite autoridade e profissionalismo instantâneo
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-white">
+                            <span class="compare-good mt-0.5 flex-shrink-0">✓</span>
+                            Recebe contatos e pedidos 24h por dia, 7 dias por semana
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-white">
+                            <span class="compare-good mt-0.5 flex-shrink-0">✓</span>
+                            Gera clientes organicamente sem depender só de anúncios
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-white">
+                            <span class="compare-good mt-0.5 flex-shrink-0">✓</span>
+                            Justifica preços premium com presença digital de qualidade
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-white">
+                            <span class="compare-good mt-0.5 flex-shrink-0">✓</span>
+                            Métricas claras para entender e otimizar resultados
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ======= SOLUÇÃO ======= -->
+    <section id="solucao">
+        <div class="max-w-6xl mx-auto px-5">
+
+            <div class="text-center mb-14 reveal">
+                <span class="tag mb-4">A solução</span>
+                <h2 class="text-4xl md:text-5xl text-white mt-4 mb-5">
+                    Sites feitos para<br /><span class="gradient-text">gerar resultados</span>
+                </h2>
+                <p class="text-lg text-muted max-w-lg mx-auto">
+                    Não criamos apenas sites bonitos. Criamos máquinas de vendas digitais focadas em transformar
+                    visitantes em clientes.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5 mb-10">
+                <div class="card-glass rounded-2xl p-7 reveal stagger-1">
+                    <div
+                        class="w-11 h-11 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-5">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4585fc" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 20h9" />
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-xl mb-3">Design que converte</h3>
+                    <p class="text-muted text-sm leading-relaxed">Cada elemento do site é pensado para guiar o visitante
+                        até a ação que você quer: ligar, mandar mensagem, comprar. Nada é por acaso.</p>
+                </div>
+
+                <div class="card-glass rounded-2xl p-7 reveal stagger-2">
+                    <div
+                        class="w-11 h-11 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-5">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4585fc" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-xl mb-3">Otimizado para o Google</h3>
+                    <p class="text-muted text-sm leading-relaxed">Entregamos sites com SEO técnico configurado desde o
+                        início para que o Google encontre e ranqueie seu negócio para os termos que seus clientes
+                        buscam.</p>
+                </div>
+
+                <div class="card-glass rounded-2xl p-7 reveal stagger-3">
+                    <div
+                        class="w-11 h-11 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-5">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4585fc" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                            <line x1="12" y1="18" x2="12.01" y2="18" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-xl mb-3">Perfeito no celular</h3>
+                    <p class="text-muted text-sm leading-relaxed">Mais de 70% das buscas são feitas pelo celular.
+                        Desenvolvemos com mentalidade mobile-first para que sua experiência seja impecável em qualquer
+                        dispositivo.</p>
+                </div>
+
+                <div class="card-glass rounded-2xl p-7 reveal stagger-4">
+                    <div
+                        class="w-11 h-11 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-5">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4585fc" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-xl mb-3">Velocidade extrema</h3>
+                    <p class="text-muted text-sm leading-relaxed">Sites lentos perdem clientes. Entregamos código limpo
+                        e otimizado para carregamento ultrarrápido, garantindo que nenhum visitante abandone por demora.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center reveal">
+                <a href="#contato" class="btn-primary text-base">Quero um site assim →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ======= RESULTADOS ======= -->
+    <section id="resultados">
+        <div class="max-w-6xl mx-auto px-5">
+
+            <div class="text-center mb-14 reveal">
+                <span class="tag mb-4">Resultados reais</span>
+                <h2 class="text-4xl md:text-5xl text-white mt-4 mb-5">
+                    Não são promessas.<br /><span class="gradient-text">São números reais.</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5 mb-14">
+                <div class="quote-card reveal stagger-1">
+                    <div class="pt-10">
+                        <p class="text-white/80 text-sm leading-relaxed mb-5">"Em 3 semanas após o lançamento do site, o
+                            volume de mensagens no WhatsApp triplicou. As pessoas chegavam dizendo que tinham encontrado
+                            a gente pelo Google. Antes do site, isso nunca acontecia."</p>
+                        <div class="flex items-center gap-3">
                             <div
-                                style="font-size:0.75rem;color:var(--gray-light);margin-bottom:12px;letter-spacing:0.06em;text-transform:uppercase">
-                                Stack médio de um projeto</div>
-                            <div style="display:flex;flex-wrap:wrap;gap:8px">
-                                <span
-                                    style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);border-radius:6px;padding:4px 10px;font-size:0.75rem;color:#60a5fa">Html</span>
-                                <span
-                                    style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);border-radius:6px;padding:4px 10px;font-size:0.75rem;color:#60a5fa">Css</span>
-                                <span
-                                    style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);border-radius:6px;padding:4px 10px;font-size:0.75rem;color:#60a5fa">Python</span>
-                                <span
-                                    style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);border-radius:6px;padding:4px 10px;font-size:0.75rem;color:#60a5fa">Vercel</span>
+                                class="w-9 h-9 rounded-full bg-dark-4 flex items-center justify-center font-bold accent text-sm">
+                                R</div>
+                            <div>
+                                <p class="text-white text-sm font-medium">Rafael M.</p>
+                                <p class="text-muted text-xs">Restaurante em Fortaleza-CE</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-card-sub">
-                    <div class="sub-card-num">3+</div>
-                    <div class="sub-card-text">Projetos entregues com sucesso</div>
+
+                <div class="quote-card reveal stagger-2">
+                    <div class="pt-10">
+                        <p class="text-white/80 text-sm leading-relaxed mb-5">"Antes eu sentia que qualquer fornecedor
+                            maior parecia mais profissional que eu. Com o site novo, os clientes chegam dizendo que me
+                            encontraram e ficaram impressionados. A percepção de valor mudou completamente."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-9 h-9 rounded-full bg-dark-4 flex items-center justify-center font-bold text-purple-400 text-sm">
+                                P</div>
+                            <div>
+                                <p class="text-white text-sm font-medium">Pedro Argerson</p>
+                                <p class="text-muted text-xs">Programador iniciante</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="about-content reveal reveal-delay-2">
-                <div class="section-label">Sobre a empresa</div>
-                <h2 class="section-title">Tecnologia<br>com propósito.</h2>
-                <p class="section-sub">A Noven Labs nasceu com a missão de transformar ideias em soluções digitais
-                    eficientes. Nossa equipe combina design, estratégia e desenvolvimento para criar experiências
-                    modernas e resultados reais para nossos clientes.</p>
-                <div class="about-list">
-                    <div class="about-item">
-                        <div class="about-check">
-                            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 6l3 3 5-5" />
-                            </svg>
+
+                <div class="quote-card reveal stagger-3">
+                    <div class="pt-10">
+                        <p class="text-white/80 text-sm leading-relaxed mb-5">"Meu negócio é pequeno, mas hoje tenho um
+                            site melhor que muitas empresas grandes da minha área. Isso me deu confiança pra cobrar mais
+                            pelos meus serviços. Melhorou muito minha imagem no mercado de trabalho. Valeu cada centavo."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-9 h-9 rounded-full bg-dark-4 flex items-center justify-center font-bold text-blue-400 text-sm">
+                                P</div>
+                            <div>
+                                <p class="text-white text-sm font-medium">Marcos A.</p>
+                                <p class="text-muted text-xs">Prestador de serviços autônomo</p>
+                            </div>
                         </div>
-                        <div class="about-item-text"><strong>Foco em resultado</strong> — cada decisão é orientada ao
-                            crescimento do seu negócio.</div>
-                    </div>
-                    <div class="about-item">
-                        <div class="about-check">
-                            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 6l3 3 5-5" />
-                            </svg>
-                        </div>
-                        <div class="about-item-text"><strong>Comunicação transparente</strong> — você acompanha cada
-                            etapa do projeto em tempo real.</div>
-                    </div>
-                    <div class="about-item">
-                        <div class="about-check">
-                            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 6l3 3 5-5" />
-                            </svg>
-                        </div>
-                        <div class="about-item-text"><strong>Tecnologia de ponta</strong> — utilizamos as melhores
-                            ferramentas disponíveis no mercado.</div>
-                    </div>
-                    <div class="about-item">
-                        <div class="about-check">
-                            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 6l3 3 5-5" />
-                            </svg>
-                        </div>
-                        <div class="about-item-text"><strong>Suporte pós-entrega</strong> — continuamos ao seu lado após
-                            o lançamento do projeto.</div>
                     </div>
                 </div>
             </div>
+
+            <!-- Big quote -->
+            <div class="rounded-2xl border border-white/6 bg-dark-3 p-8 md:p-12 reveal text-center">
+                <p class="text-2xl md:text-3xl text-white font-semibold leading-snug max-w-3xl mx-auto">
+                    "Quem é <span class="accent">encontrado primeiro</span>,<br />vende primeiro."
+                </p>
+                <p class="text-muted mt-4 text-sm">— A realidade do mercado digital de hoje</p>
+            </div>
+
         </div>
     </section>
 
-    <!-- ─── DIFFERENTIALS ─────────────────────────────────────────────── -->
-    <section class="section" id="diferenciais">
-        <div class="container">
-            <div class="diff-header reveal">
-                <div class="section-label" style="justify-content:center">Por que a Noven Labs</div>
-                <h2 class="section-title">Nossos diferenciais</h2>
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ======= PROCESSO ======= -->
+    <section id="processo">
+        <div class="max-w-6xl mx-auto px-5">
+
+            <div class="text-center mb-14 reveal">
+                <span class="tag mb-4">Simples e rápido</span>
+                <h2 class="text-4xl md:text-5xl text-white mt-4 mb-5">
+                    Do zero ao ar em<br /><span class="gradient-text">4 passos simples</span>
+                </h2>
+                <p class="text-lg text-muted max-w-lg mx-auto">Sem complicação, sem burocracia. Você foca no seu
+                    negócio, a gente cuida do resto.</p>
             </div>
-            <div class="diff-grid">
-                <div class="diff-card reveal">
-                    <div class="diff-number">01</div>
-                    <div class="diff-title">Design Moderno</div>
-                    <div class="diff-text">Interfaces visualmente impactantes, alinhadas às tendências globais de UI/UX
-                        e identidade da sua marca.</div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="reveal stagger-1">
+                    <div class="card-glass rounded-2xl p-7 h-full">
+                        <div class="step-num mb-5">01</div>
+                        <h3 class="text-white text-lg mb-3">Conversa inicial</h3>
+                        <p class="text-muted text-sm leading-relaxed">Entendemos seu negócio, seu público, seus
+                            objetivos e o que você precisa que o site faça por você.</p>
+                    </div>
                 </div>
-                <div class="diff-card reveal reveal-delay-1">
-                    <div class="diff-number">02</div>
-                    <div class="diff-title">Alta Performance</div>
-                    <div class="diff-text">Sites otimizados para máxima velocidade, com nota alta no Google Lighthouse e
-                        excelente experiência de uso.</div>
+                <div class="reveal stagger-2">
+                    <div class="card-glass rounded-2xl p-7 h-full">
+                        <div class="step-num mb-5">02</div>
+                        <h3 class="text-white text-lg mb-3">Estratégia e design</h3>
+                        <p class="text-muted text-sm leading-relaxed">Criamos o layout e a estrutura pensando em
+                            conversão. Você aprova antes de qualquer linha de código.</p>
+                    </div>
                 </div>
-                <div class="diff-card reveal reveal-delay-2">
-                    <div class="diff-number">03</div>
-                    <div class="diff-title">Código Limpo</div>
-                    <div class="diff-text">Arquitetura escalável, código bem documentado e fácil de manter. Sem
-                        gambiarras, sem legado desnecessário.</div>
+                <div class="reveal stagger-3">
+                    <div class="card-glass rounded-2xl p-7 h-full">
+                        <div class="step-num mb-5">03</div>
+                        <h3 class="text-white text-lg mb-3">Desenvolvimento</h3>
+                        <p class="text-muted text-sm leading-relaxed">Desenvolvemos com código limpo, rápido e
+                            otimizado. Você acompanha o progresso e pede ajustes em tempo real.</p>
+                    </div>
                 </div>
-                <div class="diff-card reveal">
-                    <div class="diff-number">04</div>
-                    <div class="diff-title">Responsividade Total</div>
-                    <div class="diff-text">Design pixel-perfect em todos os dispositivos — celular, tablet e desktop sem
-                        nenhum compromisso.</div>
-                </div>
-                <div class="diff-card reveal reveal-delay-1">
-                    <div class="diff-number">05</div>
-                    <div class="diff-title">SEO Otimizado</div>
-                    <div class="diff-text">Estrutura técnica que favorece o rankeamento no Google, com meta tags, schema
-                        markup e core web vitals.</div>
-                </div>
-                <div class="diff-card reveal reveal-delay-2">
-                    <div class="diff-number">06</div>
-                    <div class="diff-title">Suporte Dedicado</div>
-                    <div class="diff-text">Atendimento ágil e personalizado. Você nunca fica sozinho — estamos
-                        disponíveis para ajudar sempre que precisar.</div>
+                <div class="reveal stagger-4">
+                    <div class="card-glass rounded-2xl p-7 h-full">
+                        <div class="step-num mb-5">04</div>
+                        <h3 class="text-white text-lg mb-3">Lançamento e suporte</h3>
+                        <p class="text-muted text-sm leading-relaxed">Publicamos o site, configuramos o domínio e
+                            ficamos ao seu lado durante a transição para garantir que tudo funcione.</p>
+                    </div>
                 </div>
             </div>
+
+            <div class="mt-10 text-center reveal">
+                <p class="text-muted text-sm mb-6">Prazo médio de entrega: <strong class="text-white">7 a 14 dias
+                        úteis</strong> dependendo da complexidade</p>
+                <a href="#contato" class="btn-primary">Começar agora →</a>
+            </div>
+
         </div>
     </section>
 
-    <!-- ─── PORTFOLIO ─────────────────────────────────────────────────── -->
-    <section class="section" id="portfolio" hidden> <!-- EM DESENVOLVIMENTO   -->
-        <div class="container">
-            <div class="portfolio-header reveal">
-                <div>
-                    <div class="section-label">Portfólio</div>
-                    <h2 class="section-title">Projetos recentes</h2>
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ======= POR QUE NÓS ======= -->
+    <section>
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="grid md:grid-cols-2 gap-14 items-center">
+
+                <div class="reveal reveal-left">
+                    <span class="tag mb-5 inline-block">Por que a Noven Labs</span>
+                    <h2 class="text-4xl md:text-5xl text-white mb-6">
+                        Feito por quem<br />entende de<br /><span class="gradient-text">resultado.</span>
+                    </h2>
+                    <p class="text-muted leading-relaxed mb-8">
+                        Não somos uma agência genérica que cria sites bonitos para foto. Somos especialistas em criar
+                        presença digital que gera resultado mensurável para negócios reais.
+                    </p>
+                    <a href="#contato" class="btn-primary">Falar com a equipe →</a>
                 </div>
-                <a href="#cta" class="btn btn-ghost">Ver todos os projetos</a>
-            </div>
-            <div class="portfolio-grid">
-                <a href="#" class="port-card reveal">
-                    <div class="port-thumb">
-                        <div class="port-thumb-inner port-thumb-1">
-                            <svg width="52" height="52" viewBox="0 0 52 52" fill="none"
-                                style="opacity:0.3;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
-                                <rect width="52" height="52" rx="12" fill="#2563EB" />
+
+                <div class="space-y-4 reveal reveal-right">
+                    <div class="card-glass rounded-xl p-5 flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center flex-shrink-0">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4585fc"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
                             </svg>
-                            Academia Pro
                         </div>
-                        <div class="port-thumb-icon">Sistema Web</div>
-                    </div>
-                    <div class="port-info">
-                        <div class="port-tag">Sistema Personalizado</div>
-                        <div class="port-name">Sistema para Academia</div>
-                        <div class="port-desc">Plataforma completa de gestão de alunos, planos, pagamentos e controle de
-                            acesso para academias.</div>
-                    </div>
-                </a>
-                <a href="#" class="port-card reveal reveal-delay-1">
-                    <div class="port-thumb">
-                        <div class="port-thumb-inner port-thumb-2">
-                            Clínica Vida
-                        </div>
-                        <div class="port-thumb-icon">Landing Page</div>
-                    </div>
-                    <div class="port-info">
-                        <div class="port-tag">Landing Page</div>
-                        <div class="port-name">Landing Page para Clínica</div>
-                        <div class="port-desc">Página de alta conversão para captação de pacientes, com agendamento
-                            integrado e depoimentos.</div>
-                    </div>
-                </a>
-                <a href="#" class="port-card reveal">
-                    <div class="port-thumb">
-                        <div class="port-thumb-inner port-thumb-3">
-                            Dashboard
-                        </div>
-                        <div class="port-thumb-icon">App Web</div>
-                    </div>
-                    <div class="port-info">
-                        <div class="port-tag">Sistema Empresarial</div>
-                        <div class="port-name">Dashboard Empresarial</div>
-                        <div class="port-desc">Painel de controle com KPIs em tempo real, relatórios financeiros e
-                            gestão de equipes.</div>
-                    </div>
-                </a>
-                <a href="#" class="port-card reveal reveal-delay-1">
-                    <div class="port-thumb">
-                        <div class="port-thumb-inner port-thumb-4">
-                            EduPlatform
-                        </div>
-                        <div class="port-thumb-icon">Plataforma</div>
-                    </div>
-                    <div class="port-info">
-                        <div class="port-tag">Plataforma Educacional</div>
-                        <div class="port-name">Plataforma Educacional</div>
-                        <div class="port-desc">EAD completo com vídeos, quizzes, certificados e área do aluno.
-                            Integração com pagamento online.</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ─── PROCESS ───────────────────────────────────────────────────── -->
-    <section class="section" id="processo">
-        <div class="container">
-            <div class="process-header reveal">
-                <div class="section-label" style="justify-content:center">Como trabalhamos</div>
-                <h2 class="section-title">Processo de trabalho</h2>
-                <p class="section-sub" style="margin:16px auto 0;text-align:center">Do briefing ao lançamento, cada
-                    etapa com foco em eficiência e qualidade.</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="tl-dot">
-                        <div class="tl-dot-inner"></div>
-                    </div>
-                    <div class="tl-content">
-                        <div class="tl-num">Etapa 01</div>
-                        <div class="tl-title">Descoberta</div>
-                        <div class="tl-text">Entendemos profundamente seu negócio, público-alvo, objetivos e desafios.
-                            Reunião inicial para alinhar expectativas, definir o escopo do projeto e mapear
-                            oportunidades.</div>
-                    </div>
-                </div>
-                <div class="timeline-item reveal reveal-delay-1">
-                    <div class="tl-dot">
-                        <div class="tl-dot-inner"></div>
-                    </div>
-                    <div class="tl-content">
-                        <div class="tl-num">Etapa 02</div>
-                        <div class="tl-title">Planejamento</div>
-                        <div class="tl-text">Definimos arquitetura, wireframes e protótipos de alta fidelidade.
-                            Aprovação do design antes de uma linha de código. Você vê o resultado antes de existir.
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item reveal reveal-delay-2">
-                    <div class="tl-dot">
-                        <div class="tl-dot-inner"></div>
-                    </div>
-                    <div class="tl-content">
-                        <div class="tl-num">Etapa 03</div>
-                        <div class="tl-title">Desenvolvimento</div>
-                        <div class="tl-text">Codificação com as melhores práticas do mercado, testes contínuos e
-                            atualizações semanais de progresso. Acesso ao ambiente de staging para acompanhamento em
-                            tempo real.</div>
-                    </div>
-                </div>
-                <div class="timeline-item reveal reveal-delay-3">
-                    <div class="tl-dot">
-                        <div class="tl-dot-inner"></div>
-                    </div>
-                    <div class="tl-content">
-                        <div class="tl-num">Etapa 04</div>
-                        <div class="tl-title">Entrega</div>
-                        <div class="tl-text">Publicação, treinamento de uso, documentação completa e suporte
-                            pós-lançamento. Monitoramos o desempenho nas primeiras semanas para garantir tudo perfeito.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ─── TESTIMONIALS ──────────────────────────────────────────────── -->
-    <section class="section" id="depoimentos" style="background:var(--dark)" hidden> <!-- EM DESENVOLVIMENTO   -->
-        <div class="container">
-            <div class="test-header reveal">
-                <div class="section-label" style="justify-content:center">Depoimentos</div>
-                <h2 class="section-title">O que dizem nossos clientes</h2>
-            </div>
-            <div class="test-grid">
-                <div class="test-card reveal">
-                    <div class="test-stars">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                    </div>
-                    <p class="test-quote">"A Noven Labs transformou completamente a presença digital da minha academia.
-                        O sistema que desenvolveram facilitou muito a gestão e aumentou a retenção dos alunos. Resultado
-                        excelente!"</p>
-                    <div class="test-author">
-                        <div class="test-avatar av-1">RF</div>
                         <div>
-                            <div class="test-name">Ricardo Figueiredo</div>
-                            <div class="test-role">Fundador · Academia FitForce</div>
+                            <h4 class="text-white font-semibold mb-1">100% foco em conversão</h4>
+                            <p class="text-muted text-sm">Cada decisão de design é tomada pensando em transformar
+                                visitas em contatos e vendas.</p>
                         </div>
                     </div>
-                </div>
-                <div class="test-card reveal reveal-delay-1">
-                    <div class="test-stars">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                    </div>
-                    <p class="test-quote">"Nossa landing page trouxe um aumento de 3x nas consultas agendadas em apenas
-                        30 dias. A equipe entendeu perfeitamente o posicionamento da clínica e entregou algo além do
-                        esperado."</p>
-                    <div class="test-author">
-                        <div class="test-avatar av-2">AM</div>
+
+                    <div class="card-glass rounded-xl p-5 flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center flex-shrink-0">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4585fc"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
                         <div>
-                            <div class="test-name">Ana Mendonça</div>
-                            <div class="test-role">Diretora · Clínica Vida Plena</div>
+                            <h4 class="text-white font-semibold mb-1">Entrega rápida e garantida</h4>
+                            <p class="text-muted text-sm">Prazos cumpridos. Sem surpresas. Seu site pronto no prazo
+                                combinado ou te avisamos antes.</p>
                         </div>
                     </div>
-                </div>
-                <div class="test-card reveal reveal-delay-2">
-                    <div class="test-stars">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                    </div>
-                    <p class="test-quote">"O dashboard desenvolvido pela Noven Labs nos deu visibilidade total sobre o
-                        negócio. Automatizamos relatórios que levavam dias para ficar prontos. Profissionalismo e
-                        entrega impecáveis."</p>
-                    <div class="test-author">
-                        <div class="test-avatar av-3">CB</div>
+
+                    <div class="card-glass rounded-xl p-5 flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center flex-shrink-0">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4585fc"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
                         <div>
-                            <div class="test-name">Carlos Borges</div>
-                            <div class="test-role">CEO · Grupo Borges Distribuição</div>
+                            <h4 class="text-white font-semibold mb-1">Tecnologia moderna</h4>
+                            <p class="text-muted text-sm">Código limpo, performático e fácil de manter. Sites que duram
+                                e crescem com seu negócio.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-glass rounded-xl p-5 flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center flex-shrink-0">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4585fc"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold mb-1">Suporte pós-entrega</h4>
+                            <p class="text-muted text-sm">Não somimos depois de entregar. Estamos disponíveis para
+                                ajustar, melhorar e evoluir seu site.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-glass rounded-xl p-5 flex items-start gap-4">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center flex-shrink-0">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4585fc"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold mb-1">Comunicação direta</h4>
+                            <p class="text-muted text-sm">Sem intermediários. Você fala direto com quem desenvolve.
+                                Decisões rápidas, resultado mais rápido.</p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ─── CTA ───────────────────────────────────────────────────────── -->
-    <section class="section" id="cta">
-        <div class="cta-bg"></div>
-        <div class="cta-inner reveal">
-            <div class="section-label" style="justify-content:center">Comece agora</div>
-            <h2 class="cta-title">Vamos construir algo incrível?</h2>
-            <p class="cta-sub">Conte-nos sobre seu projeto. Respondemos em até 24 horas com uma proposta personalizada.
-            </p>
-            <div class="cta-actions">
-                <a href="https://wa.me/558585999492843?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
-                    target="_blank" class="btn btn-primary btn-lg">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                        <path
-                            d="M12.05 1.5C6.212 1.5 1.5 6.179 1.5 11.977c0 1.879.499 3.641 1.37 5.163L1.5 22.5l5.544-1.342A10.518 10.518 0 0012.05 22.5c5.838 0 10.55-4.679 10.55-10.523C22.6 6.179 17.888 1.5 12.05 1.5z" />
-                    </svg>
-                    Solicitar orçamento
-                </a>
-                <a href="mailto:contato.novenlabs@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
-                    Enviar e-mail
-                </a>
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ======= FAQ ======= -->
+    <section id="faq">
+        <div class="max-w-3xl mx-auto px-5">
+
+            <div class="text-center mb-14 reveal">
+                <span class="tag mb-4">Dúvidas frequentes</span>
+                <h2 class="text-4xl md:text-5xl text-white mt-4">
+                    Respondendo suas<br /><span class="gradient-text">objeções</span>
+                </h2>
             </div>
+
+            <div class="space-y-0 reveal">
+                <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-white text-base font-medium">Quanto custa criar um site?</h3>
+                        <svg class="faq-arrow flex-shrink-0 text-muted" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-muted text-sm leading-relaxed pt-3">O investimento varia de acordo com o tipo de
+                            projeto, número de páginas e funcionalidades necessárias. Trabalhamos com projetos a partir
+                            de um valor acessível para pequenos negócios, com foco em entregar o máximo de retorno sobre
+                            o investimento. Entre em contato para receber um orçamento personalizado e sem compromisso.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-white text-base font-medium">Quanto tempo leva para ficar pronto?</h3>
+                        <svg class="faq-arrow flex-shrink-0 text-muted" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-muted text-sm leading-relaxed pt-3">Dependendo da complexidade do projeto, o
+                            prazo médio é de 7 a 14 dias úteis após o início do desenvolvimento. Landing pages simples
+                            podem ser entregues em menos de uma semana. Projetos maiores com múltiplas páginas e
+                            funcionalidades específicas podem levar um pouco mais. O prazo é sempre combinado antes de
+                            começar e cumprido.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-white text-base font-medium">Já tenho um site, vale a pena refazer?</h3>
+                        <svg class="faq-arrow flex-shrink-0 text-muted" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-muted text-sm leading-relaxed pt-3">Se seu site atual não está gerando contatos,
+                            aparece mal no Google, é lento ou não funciona bem no celular — sim, vale muito a pena. Um
+                            site desatualizado pode ativamente afastar clientes em vez de atrair. Antes de decidir,
+                            podemos fazer uma análise gratuita do seu site atual e te mostrar exatamente o que está te
+                            custando clientes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-white text-base font-medium">Vou precisar entender de tecnologia para usar?</h3>
+                        <svg class="faq-arrow flex-shrink-0 text-muted" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-muted text-sm leading-relaxed pt-3">Não. Desenvolvemos sites simples de gerir,
+                            com painéis de administração intuitivos quando necessário. Além disso, oferecemos suporte
+                            pós-entrega para te ajudar com qualquer dúvida. Você foca no seu negócio; a parte técnica
+                            fica com a gente.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-white text-base font-medium">Preciso já ter as fotos e textos do meu negócio?
+                        </h3>
+                        <svg class="faq-arrow flex-shrink-0 text-muted" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-muted text-sm leading-relaxed pt-3">Não é obrigatório, mas ajuda muito. Caso você
+                            não tenha, podemos usar bancos de imagens profissionais gratuitamente e ajudamos você a
+                            criar os textos que comunicam bem o seu negócio. O conteúdo certo faz toda a diferença nos
+                            resultados do site.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-white text-base font-medium">O site vai aparecer no Google automaticamente?</h3>
+                        <svg class="faq-arrow flex-shrink-0 text-muted" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-muted text-sm leading-relaxed pt-3">Entregamos todos os sites com SEO técnico
+                            configurado corretamente: estrutura semântica, meta tags, velocidade otimizada, sitemap e
+                            indexação. Isso garante que o Google rastreie e indexe seu site. Para aparecer nos primeiros
+                            resultados, é necessário um trabalho contínuo de SEO — que também oferecemos como serviço
+                            adicional.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- ─── FOOTER ────────────────────────────────────────────────────── -->
-    <footer id="contato">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="#" class="nav-logo" style="text-decoration:none">
-                        <div class="logo-mark">
-                            <img src="../IMG/logo.png" alt="Noven Labs logo" />
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ======= CTA FINAL ======= -->
+    <section id="contato" class="relative overflow-hidden noise">
+        <div class="hero-glow" style="width:600px;height:600px;top:-150px;left:50%;transform:translateX(-60%);"></div>
+
+        <div class="max-w-5xl mx-auto px-5 relative z-10">
+            <div class="text-center mb-14 reveal">
+                <span class="tag mb-4">Vamos começar</span>
+                <h2 class="text-4xl md:text-5xl text-white mt-4 mb-5">
+                    Seu negócio fecha às 18h.<br />
+                    <span class="gradient-text">Seu site não.</span>
+                </h2>
+                <p class="text-lg text-muted max-w-lg mx-auto">
+                    Preencha o formulário abaixo ou fale direto no WhatsApp. Respondemos em menos de 24 horas com um
+                    diagnóstico gratuito da sua presença digital.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+
+                <!-- Form -->
+                <div class="card-glass rounded-2xl p-7 md:p-8 reveal reveal-left">
+                    <h3 class="text-white text-xl mb-6">Solicitar orçamento</h3>
+                    <form id="contact-form" class="space-y-4" onsubmit="handleSubmit(event)">
+                        <div>
+                            <label class="block text-sm text-muted mb-2" for="name">Seu nome</label>
+                            <input id="name" type="text" class="form-input" placeholder="João Silva" required />
                         </div>
-                        <span class="logo-text">Noven Labs</span>
-                    </a>
-                    <p class="footer-tagline">Construindo soluções digitais que impulsionam negócios. Tecnologia com
-                        propósito.</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/labsnoven/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        <div>
+                            <label class="block text-sm text-muted mb-2" for="whatsapp">WhatsApp</label>
+                            <input id="whatsapp" type="tel" class="form-input" placeholder="(85) 99999-0000" required />
+                        </div>
+                        <div>
+                            <label class="block text-sm text-muted mb-2" for="business">Tipo de negócio</label>
+                            <input id="business" type="text" class="form-input"
+                                placeholder="Restaurante, loja, serviços..." required />
+                        </div>
+                        <div>
+                            <label class="block text-sm text-muted mb-2" for="message">O que você precisa?
+                                (opcional)</label>
+                            <textarea id="message" rows="3" class="form-input resize-none"
+                                placeholder="Site novo, landing page, reformulação..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full justify-center text-base py-4">
+                            Quero meu diagnóstico gratuito
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <p class="text-xs text-center text-muted">Sem spam. Sem compromisso. Resposta em até 24h.</p>
+                    </form>
+                </div>
+
+                <!-- Alternativas + info -->
+                <div class="reveal reveal-right space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-4">Prefere falar direto?</p>
+                        <a href="https://wa.me/5585999492843?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20criar%20um%20site%20profissional%20para%20meu%20neg%C3%B3cio."
+                            target="_blank"
+                            class="flex items-center gap-3 card-glass rounded-xl p-4 transition-colors hover:border-green-500/30">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center flex-shrink-0">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#22c55e">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                                    <path
+                                        d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.11 1.524 5.838L.064 23.5l5.787-1.517A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.809 9.809 0 0 1-5.001-1.366l-.359-.214-3.716.975.992-3.617-.234-.371A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Conversar no WhatsApp</p>
+                                <p class="text-muted text-xs">Resposta imediata — clique aqui</p>
+                            </div>
+                            <svg class="ml-auto text-muted" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
-                                <rect x="2" y="9" width="4" height="12" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
-                            </svg>
-                        </a>
                     </div>
-                </div>
-                <div>
-                    <div class="footer-col-title">Serviços</div>
-                    <div class="footer-links">
-                        <a href="#servicos">Desenvolvimento Web</a>
-                        <a href="#servicos">Landing Pages</a>
-                        <a href="#servicos">Sistemas Personalizados</a>
-                        <a href="#servicos">Automações</a>
+
+                    <div class="divider"></div>
+
+                    <div class="space-y-3">
+                        <p class="text-white font-semibold">Por que não esperar?</p>
+                        <div class="flex items-start gap-3">
+                            <span class="accent text-sm mt-0.5 flex-shrink-0">✦</span>
+                            <p class="text-muted text-sm">Cada dia sem site é um dia que seu concorrente recebe clientes
+                                que poderiam ser seus.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="accent text-sm mt-0.5 flex-shrink-0">✦</span>
+                            <p class="text-muted text-sm">O diagnóstico é gratuito e não gera compromisso nenhum da sua
+                                parte.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="accent text-sm mt-0.5 flex-shrink-0">✦</span>
+                            <p class="text-muted text-sm">Respondemos em menos de 24h com uma análise real do seu
+                                cenário digital.</p>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <div class="footer-col-title">Empresa</div>
-                    <div class="footer-links">
-                        <a href="#sobre">Sobre nós</a>
-                        <a href="#processo">Como trabalhamos</a>
-                        <a href="#depoimentos">Depoimentos</a>
+
+                    <div class="card-glass rounded-xl p-5">
+                        <p class="text-sm text-muted">Atendemos com <strong class="text-white">foco total na sua
+                                região</strong> — especialmente negócios no Ceará, mas com projetos por todo o Brasil.
+                        </p>
                     </div>
-                </div>
-                <div>
-                    <div class="footer-col-title">Contato</div>
-                    <div class="footer-contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                            <polyline points="22,6 12,13 2,6" />
-                        </svg>
-                        <a href="mailto:contato.novenlabs@gmail.com">contato.novenlabs@gmail.com</a>
-                    </div>
-                    <div class="footer-contact-item">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
-                            <path
-                                d="M12.05 1.5C6.212 1.5 1.5 6.179 1.5 11.977c0 1.879.499 3.641 1.37 5.163L1.5 22.5l5.544-1.342A10.518 10.518 0 0012.05 22.5c5.838 0 10.55-4.679 10.55-10.523C22.6 6.179 17.888 1.5 12.05 1.5z" />
-                        </svg>
-                        <a href="https://wa.me/558585999492843" target="_blank">(85) 99949-2843</a>
-                    </div>
-                    <div class="footer-contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                            <circle cx="12" cy="10" r="3" />
-                        </svg>
-                        <span>Beberibe, Ceará — Brasil</span>
-                    </div>
+
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-copy">© 2025 Noven Labs. Todos os direitos reservados.</div>
-                <div class="footer-copy">Feito com ♥ no Ceará, Brasil</div>
+        </div>
+    </section>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="border-t border-white/5 py-10">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+                <div class="flex items-center gap-2.5">
+                    <div class=" accent-bg">
+                    <img src="./IMG/logoofcvv.ico" alt="Logo" class="w-4 h-4">
+                </div>
+                    </div>
+                    <span
+                        style="font-family:'Syne',sans-serif; font-weight:800; font-size:17px; letter-spacing:-0.02em;">Noven<span
+                            class="accent">Labs</span></span>
+                </div>
+                <p class="text-muted text-sm text-center">Sites que geram resultados para negócios reais. Fortaleza-CE.
+                </p>
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/5585994928430" target="_blank"
+                        class="text-muted hover:text-white transition-colors text-sm">WhatsApp</a>
+                    <span class="text-white/10">·</span>
+                    <a href="mailto:contato@novenlabs.com.br"
+                        class="text-muted hover:text-white transition-colors text-sm">Email</a>
+                </div>
+            </div>
+            <div class="mt-6 text-center">
+                <p class="text-xs text-white/20">© 2025 Noven Labs. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <button id="chat-toggle" aria-label="Abrir chat">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 1.5C6.212 1.5 1.5 6.179 1.5 11.977c0 1.879.499 3.641 1.37 5.163L1.5 22.5l5.544-1.342A10.518 10.518 0 0012.05 22.5c5.838 0 10.55-4.679 10.55-10.523C22.6 6.179 17.888 1.5 12.05 1.5z" />
-        </svg>
-    </button>
-
-    <div id="chat-card" aria-live="polite" role="dialog" aria-label="Chatbot Noven Labs">
-        <div id="chat-card-header">
-            <div class="chat-header-info">
-                <img src="IMG/logo.png" alt="Logo Noven Labs" class="chat-avatar" />
-                <div>
-                    <h3>Chat Noven Labs</h3>
-                    <span class="chat-header-subtitle">Atendimento virtual</span>
+    <!-- ======= AI CHAT ======= -->
+    <div id="ai-chat" class="ai-chat" aria-live="polite">
+        <div class="ai-chat-panel" role="dialog" aria-modal="false" aria-labelledby="ai-chat-title">
+            <div class="ai-chat-header">
+                <div class="ai-chat-avatar" aria-hidden="true">
+                    <img src="./IMG/logo.png" alt="" />
                 </div>
+                <div>
+                    <h3 id="ai-chat-title" class="text-white text-sm font-semibold">Assistente Noven Labs</h3>
+                    <p class="text-muted text-xs flex items-center gap-2 mt-1"><span class="ai-chat-status"></span>Online agora</p>
+                </div>
+                <button id="ai-chat-close" class="ai-chat-close" type="button" aria-label="Fechar chat">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
             </div>
-            <button id="chat-close" aria-label="Fechar chat">×</button>
+
+            <div id="ai-chat-messages" class="ai-chat-messages"></div>
+
+            <div class="ai-quick-actions" aria-label="Perguntas rápidas">
+                <button type="button" data-chat-question="Como funciona o processo?">Processo</button>
+                <button type="button" data-chat-question="Quanto tempo demora?">Prazo</button>
+                <button type="button" data-chat-question="Quais serviços vocês fazem?">Serviços</button>
+                <button type="button" data-chat-question="Quero falar no WhatsApp">WhatsApp</button>
+            </div>
+
+            <form id="ai-chat-form" class="ai-chat-form">
+                <input id="ai-chat-input" class="ai-chat-input" type="text"
+                    placeholder="Digite sua dúvida..." autocomplete="off" />
+                <button class="ai-chat-send" type="submit" aria-label="Enviar mensagem">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </form>
         </div>
-        <div id="chat-card-messages">
-            <div class="chat-message bot">Olá! Eu sou o assistente da Noven Labs. Como posso ajudar você hoje?</div>
-        </div>
-        <form id="chat-card-form">
-            <input id="chat-input" type="text" placeholder="Escreva sua mensagem..." autocomplete="off" />
-            <button id="chat-send" type="submit">Enviar</button>
-        </form>
+
+        <button id="ai-chat-toggle" class="ai-chat-toggle" type="button" aria-label="Abrir assistente virtual">
+            <span class="ai-chat-bubble-label">Tire suas dúvidas aqui</span>
+            <svg width="27" height="27" viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M7 8.5h10M7 12h6M8 18H6.2C4.4 18 3 16.6 3 14.8V7.2C3 5.4 4.4 4 6.2 4h11.6C19.6 4 21 5.4 21 7.2v7.6c0 1.8-1.4 3.2-3.2 3.2h-4.4L9 21v-3z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
     </div>
 
-    <!-- ─── JS ────────────────────────────────────────────────────────── -->
     <script>
-        // NAV SCROLL
+        // ===== NAV SCROLL =====
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 20);
+            if (window.scrollY > 40) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
         });
 
-        // HAMBURGER
-        const hamburger = document.getElementById('hamburger');
+        // ===== MOBILE MENU =====
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenu = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('open');
-        });
-        document.querySelectorAll('.mobile-link, .mobile-menu .btn').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('open');
-            });
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            overlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenuFn() {
+            mobileMenu.classList.remove('open');
+            overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        menuBtn.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFn);
+        overlay.addEventListener('click', closeMenuFn);
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', closeMenuFn);
         });
 
-        // REVEAL ON SCROLL
-        const reveals = document.querySelectorAll('.reveal');
+        // ===== SCROLL REVEAL =====
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        reveals.forEach(el => observer.observe(el));
 
-        // SMOOTH ANCHOR
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                const href = a.getAttribute('href');
-                if (href === '#') return;
-                const target = document.querySelector(href);
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+        // ===== FAQ =====
+        function toggleFaq(item) {
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        }
+
+        // ===== FORM SUBMIT =====
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const business = document.getElementById('business').value;
+            const message = document.getElementById('message').value;
+
+            // WhatsApp redirect
+            const text = encodeURIComponent(`Olá! Vim pelo site da Noven Labs.\n\n*Nome:* ${name}\n*WhatsApp:* ${whatsapp}\n*Negócio:* ${business}\n*Mensagem:* ${message || 'Quero um orçamento'}`);
+
+            // Show toast
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+                window.open(`https://wa.me/5585994928430?text=${text}`, '_blank');
+            }, 1400);
+
+            document.getElementById('contact-form').reset();
+        }
+
+        // ===== SMOOTH SCROLL for anchors =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const offset = 80;
+                    window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
                 }
             });
         });
 
-        // HERO PARALLAX (subtle)
-        window.addEventListener('scroll', () => {
-            const hero = document.getElementById('hero');
-            const scrolled = window.pageYOffset;
-            const bg = hero.querySelector('.hero-glow-1');
-            if (bg && scrolled < window.innerHeight) {
-                bg.style.transform = `translateX(-50%) translateY(${scrolled * 0.15}px)`;
+        // ===== Counter animation =====
+        function animateCounter(el) {
+            const target = parseFloat(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const duration = 1500;
+            const steps = 60;
+            const stepTime = duration / steps;
+            let current = 0;
+            const increment = target / steps;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = (Number.isInteger(target) ? Math.floor(current) : current.toFixed(1)) + suffix;
+            }, stepTime);
+        }
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    animateCounter(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+        // ===== AI CHAT =====
+        const aiChat = document.getElementById('ai-chat');
+        const aiChatToggle = document.getElementById('ai-chat-toggle');
+        const aiChatClose = document.getElementById('ai-chat-close');
+        const aiChatMessages = document.getElementById('ai-chat-messages');
+        const aiChatForm = document.getElementById('ai-chat-form');
+        const aiChatInput = document.getElementById('ai-chat-input');
+        const aiChatHistory = [];
+        const aiWhatsappNumber = '5585994928430';
+
+        const aiAnswers = [
+            {
+                intent: 'greeting',
+                keys: ['ola', 'oi', 'opa', 'eae', 'eaí', 'bom dia', 'boa tarde', 'boa noite', 'hello', 'hi'],
+                text: 'Olá! Que bom te ver por aqui. Eu sou o assistente da Noven Labs e posso te ajudar a entender qual tipo de site faz mais sentido para o seu negócio.',
+                followUp: 'Você já tem um site hoje ou está pensando em criar um do zero?',
+                cta: false
+            },
+            {
+                intent: 'thanks',
+                keys: ['obrigado', 'obrigada', 'valeu', 'show', 'perfeito', 'entendi', 'beleza', 'top'],
+                text: 'Boa. Fico feliz em ajudar. Se quiser, eu também posso te explicar próximos passos, prazo, investimento ou te levar direto para falar com a equipe.',
+                cta: false
+            },
+            {
+                intent: 'bye',
+                keys: ['tchau', 'ate mais', 'até mais', 'falou', 'depois eu vejo', 'vou pensar'],
+                text: 'Combinado. Quando quiser voltar, eu te ajudo por aqui. E se preferir algo mais direto, a equipe da Noven Labs também pode te atender pelo WhatsApp.',
+                cta: true
+            },
+            {
+                intent: 'identity',
+                keys: ['quem e voce', 'quem é voce', 'quem é você', 'voce e uma ia', 'você é uma ia', 'assistente', 'robo', 'robô'],
+                text: 'Eu sou o assistente virtual da Noven Labs. Minha função é entender sua dúvida, explicar como trabalhamos e facilitar seu caminho até um diagnóstico gratuito com a equipe.',
+                followUp: 'Me conta rapidinho: seu objetivo é atrair mais clientes, melhorar um site existente ou lançar uma página nova?',
+                cta: false
+            },
+            {
+                intent: 'price',
+                keys: ['preco', 'preço', 'valor', 'quanto custa', 'orcamento', 'orçamento', 'investimento', 'caro', 'barato', 'plano', 'pacote'],
+                text: 'Sobre investimento: depende do objetivo e do tamanho do projeto. Uma landing page para campanha é diferente de um site institucional completo ou de uma reformulação. A Noven Labs olha primeiro para o que precisa gerar resultado: contato, confiança, presença no Google ou venda.',
+                followUp: 'Para eu te orientar melhor: você quer algo mais simples para começar rápido ou um site mais completo para posicionar sua marca?',
+                cta: true
+            },
+            {
+                intent: 'deadline',
+                keys: ['prazo', 'tempo', 'demora', 'entrega', 'dias'],
+                text: 'Em geral, projetos simples ficam entre 7 e 14 dias úteis após o início. Quando o projeto tem mais páginas, integrações ou ajustes de conteúdo, a gente monta um cronograma mais certinho antes de começar.',
+                followUp: 'Você tem alguma data em mente para colocar o site no ar?',
+                cta: true
+            },
+            {
+                intent: 'process',
+                keys: ['processo', 'funciona', 'etapas', 'como voces trabalham', 'como vocês trabalham'],
+                text: 'Nosso processo é bem direto: diagnóstico do negócio, planejamento da estrutura, criação visual, desenvolvimento, ajustes com você e publicação. A ideia é entregar um site bonito, rápido e pensado para gerar contato, não só para existir online.',
+                followUp: 'Hoje sua maior dificuldade é aparecer na internet, passar mais confiança ou transformar visitas em mensagens?',
+                cta: true
+            },
+            {
+                intent: 'services',
+                keys: ['servico', 'serviço', 'servicos', 'serviços', 'o que voces fazem', 'o que vocês fazem'],
+                text: 'A Noven Labs cria sites profissionais, landing pages, páginas de captura, reformulação de sites, SEO técnico e soluções sob medida. O foco é presença digital com aparência profissional e caminho claro para o cliente entrar em contato.',
+                followUp: 'Qual desses parece mais próximo do que você precisa agora?',
+                cta: true
+            },
+            {
+                intent: 'landing',
+                keys: ['landing', 'pagina de venda', 'página de venda', 'pagina de captura', 'página de captura', 'captar lead', 'leads', 'campanha', 'anuncio', 'anúncio', 'trafego pago', 'tráfego pago'],
+                text: 'Uma landing page é ideal quando você quer uma página focada em uma ação: chamar no WhatsApp, preencher formulário, comprar, agendar ou pedir orçamento. Ela costuma ser mais direta que um site completo e funciona muito bem com anúncios.',
+                followUp: 'Você pretende usar essa página para campanha/anúncio ou para deixar como apresentação principal do negócio?',
+                cta: true
+            },
+            {
+                intent: 'website',
+                keys: ['site institucional', 'site completo', 'site profissional', 'criar site', 'site novo', 'novo site', 'varias paginas', 'várias páginas'],
+                text: 'Um site profissional é melhor quando sua empresa precisa passar confiança, apresentar serviços, mostrar diferenciais e ter uma presença digital mais completa. Ele vira uma base para clientes entenderem quem você é antes de chamar no WhatsApp.',
+                followUp: 'Seu negócio vende serviço, produto ou atende os dois tipos de cliente?',
+                cta: true
+            },
+            {
+                intent: 'redesign',
+                keys: ['refazer', 'reformular', 'reformulacao', 'reformulação', 'ja tenho site', 'já tenho site', 'site antigo', 'site feio', 'site ruim', 'melhorar meu site'],
+                text: 'Se você já tem um site, dá para avaliar se vale reformular ou criar outro do zero. Normalmente a reformulação faz sentido quando o site está lento, confuso, antigo, ruim no celular ou não gera contatos.',
+                followUp: 'O maior problema do seu site hoje é visual, velocidade, falta de contatos ou dificuldade de atualizar?',
+                cta: true
+            },
+            {
+                intent: 'domainHosting',
+                keys: ['dominio', 'domínio', 'hospedagem', 'host', 'servidor', 'registro', 'colocar no ar', 'publicar'],
+                text: 'A gente pode orientar a parte de domínio e hospedagem também. Você não precisa chegar sabendo disso. O importante é definir o endereço do site, onde ele vai ficar hospedado e como ele será publicado com segurança.',
+                followUp: 'Você já tem domínio comprado ou ainda vai escolher o nome do site?',
+                cta: true
+            },
+            {
+                intent: 'content',
+                keys: ['texto', 'textos', 'copy', 'conteudo', 'conteúdo', 'fotos', 'imagens', 'logo', 'identidade visual', 'nao tenho fotos', 'não tenho fotos'],
+                text: 'Você não precisa ter tudo pronto antes de conversar com a Noven Labs. Fotos, textos e estrutura podem ser organizados no processo. Quando o cliente ainda não tem conteúdo, ajudamos a transformar as informações do negócio em uma comunicação clara.',
+                followUp: 'Você já tem logo, fotos e textos, ou quer ajuda para montar essa parte também?',
+                cta: true
+            },
+            {
+                intent: 'trust',
+                keys: ['confianca', 'confiança', 'credibilidade', 'profissional', 'passar confiança', 'cliente confia', 'marca', 'imagem'],
+                text: 'Um bom site ajuda muito na confiança. Quando o cliente entra e encontra uma página rápida, organizada, bonita e com informações claras, ele sente que a empresa é mais séria antes mesmo de chamar no WhatsApp.',
+                followUp: 'Hoje você sente que sua presença online passa essa confiança ou ainda parece improvisada?',
+                cta: true
+            },
+            {
+                intent: 'mobile',
+                keys: ['celular', 'mobile', 'responsivo', 'telefone', 'smartphone', 'no celular', 'adaptado'],
+                text: 'Sim, o site precisa funcionar muito bem no celular. Boa parte dos clientes vai chegar pelo WhatsApp, Instagram ou Google usando o telefone. Por isso a Noven Labs pensa o layout para leitura rápida, botões fáceis e navegação simples no mobile.',
+                followUp: 'Seu público costuma te encontrar mais pelo Instagram, Google ou indicação?',
+                cta: true
+            },
+            {
+                intent: 'maintenance',
+                keys: ['manutencao', 'manutenção', 'suporte', 'atualizar', 'alterar depois', 'mudanca depois', 'mudança depois', 'pos entrega', 'pós entrega'],
+                text: 'Depois da entrega, também dá para combinar suporte e ajustes. Isso é útil para trocar textos, atualizar informações, acompanhar desempenho ou fazer melhorias conforme seu negócio evolui.',
+                followUp: 'Você imagina precisar atualizar o site com frequência ou seria algo mais estável?',
+                cta: true
+            },
+            {
+                intent: 'ecommerce',
+                keys: ['loja virtual', 'ecommerce', 'e-commerce', 'vender online', 'pagamento online', 'carrinho', 'produto online', 'catalogo online', 'catálogo online'],
+                text: 'Para venda online, existem dois caminhos: uma loja virtual com carrinho e pagamento, ou um catálogo mais simples levando o cliente para o WhatsApp. A escolha depende do volume de produtos, forma de pagamento e rotina de atendimento.',
+                followUp: 'Você quer vender com pagamento direto no site ou prefere que o cliente escolha e finalize pelo WhatsApp?',
+                cta: true
+            },
+            {
+                intent: 'portfolioMenu',
+                keys: ['portfolio', 'portfólio', 'cardapio', 'cardápio', 'catalogo', 'catálogo', 'mostrar trabalhos', 'mostrar produtos', 'galeria'],
+                text: 'Dá para criar uma página bem visual para mostrar trabalhos, produtos, cardápio ou catálogo. Nesse caso, o mais importante é organizar as informações para o cliente bater o olho, entender a oferta e chamar você sem ficar perdido.',
+                followUp: 'Você quer mostrar muitos itens ou só destacar os principais serviços/produtos?',
+                cta: true
+            },
+            {
+                intent: 'notSure',
+                keys: ['nao sei', 'não sei', 'tenho duvida', 'tenho dúvida', 'estou perdido', 'me ajuda', 'qual melhor', 'qual o melhor', 'nao entendo', 'não entendo'],
+                text: 'Sem problema. Você não precisa chegar sabendo o nome técnico da solução. Eu posso te ajudar pela intenção: se você quer captar contatos rápido, tende a ser landing page; se quer presença mais completa, tende a ser site; se já tem algo ruim, pode ser reformulação.',
+                followUp: 'Hoje você sente mais falta de clientes, de confiança na imagem da empresa ou de presença no Google?',
+                cta: false
+            },
+            {
+                intent: 'smallBusiness',
+                keys: ['pequena empresa', 'mei', 'autonomo', 'autônomo', 'loja pequena', 'negocio pequeno', 'negócio pequeno', 'começando agora', 'comecando agora'],
+                text: 'Para negócios menores ou começando agora, o ideal é criar uma presença simples, profissional e objetiva. Não precisa nascer enorme. Precisa deixar claro o que você faz, por que confiar em você e como o cliente fala contigo.',
+                followUp: 'Você quer começar com algo mais enxuto ou já quer uma estrutura mais completa desde o início?',
+                cta: true
+            },
+            {
+                intent: 'conversion',
+                keys: ['vender mais', 'mais clientes', 'gerar clientes', 'gerar contato', 'converter', 'conversao', 'conversão', 'mensagens', 'orcamentos', 'orçamentos'],
+                text: 'Esse é exatamente o ponto central: o site precisa conduzir a pessoa para a ação. A Noven Labs pensa em chamada clara, botões visíveis, prova de confiança, texto direto e uma estrutura que reduza dúvidas antes do contato.',
+                followUp: 'Hoje você quer receber mais mensagens no WhatsApp, mais formulários preenchidos ou mais visitas qualificadas?',
+                cta: true
+            },
+            {
+                intent: 'region',
+                keys: ['fortaleza', 'ceara', 'ceará', 'minha cidade', 'regiao', 'região', 'local', 'perto de mim', 'bairro'],
+                text: 'Para negócios locais, o site pode ser construído pensando na sua região: cidade, bairros atendidos, serviços mais buscados e chamadas que façam sentido para quem está perto de você.',
+                followUp: 'Você atende só na sua cidade ou também pega clientes de outras regiões?',
+                cta: true
+            },
+            {
+                intent: 'security',
+                keys: ['seguro', 'segurança', 'seguranca', 'https', 'ssl', 'proteger', 'dados'],
+                text: 'Sim, segurança entra no básico bem feito: site com HTTPS, estrutura organizada, boas práticas de publicação e cuidado com formulários/links de contato. Para projetos com dados mais sensíveis, a arquitetura precisa ser pensada com ainda mais atenção.',
+                followUp: 'Seu site seria mais institucional ou teria login, pagamentos ou cadastro de clientes?',
+                cta: true
+            },
+            {
+                intent: 'differential',
+                keys: ['diferencial', 'por que escolher', 'por que voces', 'por que vocês', 'vantagem', 'concorrente', 'diferente'],
+                text: 'O diferencial da Noven Labs é tratar site como ferramenta de venda e posicionamento, não como enfeite. A conversa começa pelo problema do negócio: falta de clientes, baixa confiança, pouca presença online ou dificuldade de explicar o serviço.',
+                followUp: 'O que mais te incomoda hoje: pouca visibilidade, pouca conversão ou aparência pouco profissional?',
+                cta: true
+            },
+            {
+                intent: 'start',
+                keys: ['como comecar', 'como começar', 'primeiro passo', 'por onde comeco', 'por onde começo', 'iniciar', 'fechar projeto', 'contratar'],
+                text: 'O primeiro passo é simples: entender seu negócio, seu público e o objetivo do site. Depois disso a equipe consegue indicar se faz mais sentido uma landing page, um site completo ou uma reformulação.',
+                followUp: 'Quer que eu te leve para o WhatsApp já com uma mensagem explicando seu interesse?',
+                cta: true
+            },
+            {
+                intent: 'seo',
+                keys: ['google', 'seo', 'aparecer', 'pesquisa', 'busca'],
+                text: 'Sim, pensamos nisso desde a estrutura. O site é feito com base técnica para o Google: responsivo, rápido, com meta tags e organização correta. Para chegar nas primeiras posições, o ideal é combinar isso com SEO contínuo e conteúdo.',
+                followUp: 'Você quer aparecer para clientes da sua cidade/região ou vender para todo o Brasil?',
+                cta: true
+            },
+            {
+                intent: 'contact',
+                keys: ['whatsapp', 'falar no whatsapp', 'chamar no whatsapp', 'contato', 'falar', 'atendente', 'humano', 'reuniao', 'reunião'],
+                text: 'Perfeito. Posso te levar direto para o WhatsApp com uma mensagem pronta para a equipe entender seu caso mais rápido.',
+                cta: true
+            },
+            {
+                intent: 'need',
+                keys: ['preciso', 'quero', 'queria', 'gostaria', 'tenho um negocio', 'tenho uma empresa', 'meu negocio', 'minha empresa', 'sou dono', 'sou dona', 'trabalho com'],
+                text: 'Entendi. Vou te orientar como se fosse uma triagem rápida: primeiro precisamos saber o tipo do seu negócio, se você já tem presença online e qual ação você quer que o cliente tome depois de entrar no site.',
+                followUp: 'Me diga em poucas palavras: qual é seu tipo de negócio?',
+                cta: false
             }
-        });
-
-        // CHATBOT CARD
-        const chatToggle = document.getElementById('chat-toggle');
-        const chatCard = document.getElementById('chat-card');
-        const chatClose = document.getElementById('chat-close');
-        const chatForm = document.getElementById('chat-card-form');
-        const chatInput = document.getElementById('chat-input');
-        const chatMessages = document.getElementById('chat-card-messages');
-
-        const DEFAULT_BACKEND_PORT = 5000;
-        const BACKEND_URL = (() => {
-            const { protocol, hostname, port } = window.location;
-
-            if (protocol === 'file:') {
-                return `http://127.0.0.1:${DEFAULT_BACKEND_PORT}/chat`;
-            }
-
-            if (hostname === '127.0.0.1' || hostname === 'localhost') {
-                return `${protocol}//${hostname}:${DEFAULT_BACKEND_PORT}/chat`;
-            }
-
-            if (port === '5000') {
-                return '/chat';
-            }
-
-            return '/chat';
-        })();
-
-        console.log('Chat backend URL:', BACKEND_URL);
-
-        const LOCAL_FALLBACK_RESPONSES = [
-            'O servidor de chat não está ativo no momento. Inicie o backend com python server.py e tente novamente.',
-            'Estou offline agora, mas logo o chat estará disponível. Enquanto isso, posso responder com informações básicas.',
-            'Não foi possível conectar ao servidor. Você pode iniciar o backend em http://127.0.0.1:5000 para usar o chat completo.',
         ];
 
-        const getLocalChatResponse = (message) => {
-            const prompt = message.toLowerCase();
+        const aiFallbacks = [
+            'Entendi. Para eu te responder melhor: isso tem relação com criar um site novo, melhorar um site atual ou atrair mais clientes pela internet?',
+            'Boa. Me dá só um pouco mais de contexto: qual é o tipo do seu negócio e o que você espera que o site faça por você?',
+            'Certo. Posso te ajudar com isso, mas preciso entender o objetivo principal: gerar contatos, passar mais confiança, divulgar serviços ou vender algum produto?',
+            'Legal. Pensando como Noven Labs, eu sempre começo pelo resultado que você quer. Você busca mais mensagens no WhatsApp, mais presença no Google ou uma página mais profissional para apresentar sua empresa?',
+            'Faz sentido. Para transformar isso em uma indicação mais precisa, eu olharia três coisas: público, oferta e canal de chegada. Seu cliente costuma vir mais por indicação, Instagram, Google ou anúncio?',
+            'Entendi o caminho. Se você quiser, posso te ajudar a organizar isso em um diagnóstico rápido e encaminhar para a equipe pelo WhatsApp.'
+        ];
 
-            if (/(orcamento|orçamento|preço|preco|valor|custo)/.test(prompt)) {
-                return 'Para orçamento, posso te ajudar a montar uma proposta. Qual tipo de site ou sistema você deseja?';
-            }
-            if (/(site|landing|loja|e-commerce|pagina|página)/.test(prompt)) {
-                return 'Se você quer um site, posso sugerir um design responsivo e otimizado para conversão. Você prefere uma landing page, portfólio ou loja online?';
-            }
-            if (/(automação|automacao|workflow|processo|integração|integracao)/.test(prompt)) {
-                return 'Automação reduz trabalho manual e agiliza processos. O que você deseja automatizar?';
-            }
-            if (/(contato|atendimento|ajuda|suporte)/.test(prompt)) {
-                return 'Posso te orientar sobre nosso processo: primeiro entendemos a ideia, depois criamos o projeto e entregamos com testes e deploy.';
-            }
-            if (/(prazo|tempo|quando|semana|meses)/.test(prompt)) {
-                return 'O prazo depende do escopo, mas pequenos projetos costumam ficar prontos em poucas semanas. Quer que eu estime o prazo para a sua ideia?';
-            }
+        function normalizeChatText(text) {
+            return text
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+        }
 
-            return LOCAL_FALLBACK_RESPONSES[Math.floor(Math.random() * LOCAL_FALLBACK_RESPONSES.length)];
-        };
-
-        const addMessage = (content, sender) => {
+        function addChatMessage(text, sender = 'bot') {
             const message = document.createElement('div');
-            message.className = `chat-message ${sender}`;
-            message.textContent = content;
-            chatMessages.appendChild(message);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            return message;
-        };
+            message.className = `ai-message ${sender}`;
+            message.textContent = text;
+            aiChatMessages.appendChild(message);
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+            aiChatHistory.push({ sender, text });
+        }
 
-        const openChat = () => {
-            chatCard.classList.add('open');
-            setTimeout(() => chatInput.focus(), 100);
-        };
+        function addChatCta() {
+            const cta = document.createElement('button');
+            cta.type = 'button';
+            cta.className = 'ai-message bot text-left hover:border-brand/40';
+            cta.textContent = 'Quero falar com a Noven Labs no WhatsApp';
+            cta.addEventListener('click', openChatWhatsapp);
+            aiChatMessages.appendChild(cta);
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+        }
 
-        const closeChat = () => chatCard.classList.remove('open');
+        function isShortGreeting(text) {
+            return /^(oi|ola|olá|opa|eae|eaí|bom dia|boa tarde|boa noite)[!. ]*$/.test(text.trim().toLowerCase());
+        }
 
-        const requestChatbot = async (message) => {
-            try {
-                const response = await fetch(BACKEND_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ message }),
-                });
+        function pickFallback(question) {
+            const index = Math.min(aiChatHistory.filter(item => item.sender === 'user').length, aiFallbacks.length - 1);
+            return {
+                text: aiFallbacks[index],
+                cta: false
+            };
+        }
 
-                if (!response.ok) {
-                    throw new Error('Falha na conexão com o servidor.');
-                }
-
-                const data = await response.json();
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-
-                return data.reply || 'Desculpe, não consegui responder agora.';
-            } catch (error) {
-                console.warn('Chat backend não disponível:', error);
-                return getLocalChatResponse(message);
+        function getChatAnswer(question) {
+            const normalizedQuestion = normalizeChatText(question);
+            if (isShortGreeting(question)) {
+                return aiAnswers.find(answer => answer.intent === 'greeting');
             }
-        };
 
-        chatToggle.addEventListener('click', () => {
-            if (chatCard.classList.contains('open')) {
-                closeChat();
-            } else {
-                openChat();
+            const matches = aiAnswers
+                .map(answer => {
+                    const score = answer.keys.reduce((total, key) => {
+                        return normalizedQuestion.includes(normalizeChatText(key)) ? total + key.length : total;
+                    }, 0);
+                    return { answer, score };
+                })
+                .filter(item => item.score > 0)
+                .sort((a, b) => b.score - a.score);
+
+            const match = matches[0]?.answer;
+
+            if (match) return match;
+
+            return pickFallback(question);
+        }
+
+        function answerChat(question) {
+            addChatMessage(question, 'user');
+            aiChatInput.value = '';
+
+            setTimeout(() => {
+                const answer = getChatAnswer(question);
+                addChatMessage(answer.text, 'bot');
+                if (answer.followUp) {
+                    setTimeout(() => {
+                        addChatMessage(answer.followUp, 'bot');
+                        if (answer.cta) addChatCta();
+                    }, 350);
+                    return;
+                }
+                if (answer.cta) addChatCta();
+            }, 450);
+        }
+
+        function openChatWhatsapp() {
+            const lastUserMessage = [...aiChatHistory].reverse().find(item => item.sender === 'user');
+            const context = lastUserMessage ? `\n\nMinha dúvida: ${lastUserMessage.text}` : '';
+            const text = encodeURIComponent(`Olá! Vim pelo assistente do site da Noven Labs e quero entender melhor como vocês podem ajudar meu negócio.${context}`);
+            window.open(`https://wa.me/${aiWhatsappNumber}?text=${text}`, '_blank');
+        }
+
+        function openAiChat() {
+            aiChat.classList.add('open');
+            aiChatToggle.setAttribute('aria-label', 'Fechar assistente virtual');
+            setTimeout(() => aiChatInput.focus(), 120);
+
+            if (!aiChatMessages.dataset.started) {
+                aiChatMessages.dataset.started = 'true';
+                addChatMessage('Olá! Eu sou o assistente da Noven Labs. Posso conversar com você sobre site, landing page, prazo, investimento, SEO ou entender qual solução combina com seu negócio.', 'bot');
+                addChatMessage('Me conta: você já tem um site ou está começando agora?', 'bot');
             }
+        }
+
+        function closeAiChat() {
+            aiChat.classList.remove('open');
+            aiChatToggle.setAttribute('aria-label', 'Abrir assistente virtual');
+        }
+
+        aiChatToggle.addEventListener('click', () => {
+            if (aiChat.classList.contains('open')) closeAiChat();
+            else openAiChat();
         });
 
-        chatClose.addEventListener('click', closeChat);
+        aiChatClose.addEventListener('click', closeAiChat);
 
-        chatForm.addEventListener('submit', async (event) => {
+        aiChatForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            const text = chatInput.value.trim();
-            if (!text) return;
+            const question = aiChatInput.value.trim();
+            if (!question) return;
+            answerChat(question);
+        });
 
-            addMessage(text, 'user');
-            chatInput.value = '';
-
-            const loading = addMessage('Pensando...', 'bot');
-            const reply = await requestChatbot(text);
-            loading.textContent = reply;
+        document.querySelectorAll('[data-chat-question]').forEach(button => {
+            button.addEventListener('click', () => {
+                openAiChat();
+                answerChat(button.dataset.chatQuestion);
+            });
         });
     </script>
 </body>
